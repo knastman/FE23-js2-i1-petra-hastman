@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>Tekken</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./main.js" type="module"></script>
+    
+</head>
+<body>
+    <!-- Div:arna innehåller input, label och rullgardinsmeny för respektive spelare  -->
+    <form>
+        <div>
+            <label for="playerOne">Player 1</label>
+            <input type="text" name="playerOne" id="playerOne">
+            
+            <select name="characterOne" id="characterOne">
+                <option value="" disabled selected>Choose a character</option>
+                <option value="characterOne">Character 1</option>
+                <option value="characterTwo">Character 2</option>
+                <option value="characterThree">Character 3</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="playerTwo">Player 2</label>
+            <input type="text" name="playerTwo" id="playerTwo">
+            
+            <select name="characterTwo" id="characterTwo">
+                <option value="" disabled selected>Choose a character</option>
+                <option value="characterOne">Character 1</option>
+                <option value="characterTwo">Character 2</option>
+                <option value="characterThree">Character 3</option>
+            </select>
+        </div>
+
+        <button>Fight</button>
+    </form>
+
+    <!-- En sektion per spelare och karaktär.
+        Första div:en i sektionen innehåller spelarinfo.
+        Den andra div:en innehåller img-element för attacker/actions -->
+
+    <div class="playerContainer">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+
+        <section class="playerCard">
+            <div>
+                <h2>Petra</h2>
+                <h3>Karaktärsnamn</h2>
+                <span>Health: 380</span>
+            </div>
+            
+            <img src="#" alt="">
+                
+            <div>
+                <h3>Action</h3>
+                <img src="#" alt="">
+                <img src="#" alt="">
+                <img src="#" alt="">
+            </div>
+            
+        </section>
+        
+        <section class="playerCard">
+            <div>
+                <h2>Andréa</h2>
+                <h3>Karaktärsnamn</h3>
+                <span>Health: 380</span>
+            </div>
+
+            <img src="#" alt="">
+
+            <div>
+                <h3>Action</h3>
+                <img src="#" alt="">
+                <img src="#" alt="">
+                <img src="#" alt="">
+            </div>
+        </section>
+    </div>
+    
+    
+</body>
+</html>
