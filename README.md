@@ -1,2 +1,13 @@
-# FE23-js2-i1-petra-hastman
-Tekken Grit - Inlämning 1 - JS 2
+## Tekken Grit - Inlämning 1 - Javascript 2 
+
+### Gruppamedlemmar
+* Petra Hastman
+* Andréa Jandergren
+
+#### Projekt på utbildningen:
+[Front end webbutvecklare](https://gritacademy.se/front-end-webbutvecklare/) 200 YH-poäng - [Grit Academy](https://gritacademy.se/)  
+(2023-2025)
+
+#### Kurs
+FE23 | Javascript 2
+
