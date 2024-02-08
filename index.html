@@ -1,88 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <title>Tekken</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./main.js" type="module"></script>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/3a14b5ad60.js" crossorigin="anonymous"></script>
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Tekken</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./main.js" type="module"></script>
 </head>
 <body>
+  <div class="wrapper">
     <!-- Div:arna innehåller input, label och rullgardinsmeny för respektive spelare  -->
-    <form>
+    <div id="formContainer">
+      <form>
         <div>
-            <label for="playerOne">Player 1</label>
-            <input type="text" name="playerOne" id="playerOne">
-            
-            <select name="characterOne" id="characterOne">
-                <option value="" disabled selected>Choose a character</option>
-                <option value="characterOne">Character 1</option>
-                <option value="characterTwo">Character 2</option>
-                <option value="characterThree">Character 3</option>
-            </select>
+          <label for="playerOne">Player 1</label>
+          <input type="text" name="playerOne" id="playerOne">
+          
+          <select name="characterOne" id="characterOne">
+            <option value="" disabled selected>Choose a character</option>
+            <option value="characterOne">Character 1</option>
+            <option value="characterTwo">Character 2</option>
+            <option value="characterThree">Character 3</option>
+          </select>
         </div>
         
         <div>
-            <label for="playerTwo">Player 2</label>
-            <input type="text" name="playerTwo" id="playerTwo">
-            
-            <select name="characterTwo" id="characterTwo">
-                <option value="" disabled selected>Choose a character</option>
-                <option value="characterOne">Character 1</option>
-                <option value="characterTwo">Character 2</option>
-                <option value="characterThree">Character 3</option>
-            </select>
+          <label for="playerTwo">Player 2</label>
+          <input type="text" name="playerTwo" id="playerTwo">
+          
+          <select name="characterTwo" id="characterTwo">
+            <option value="" disabled selected>Choose a character</option>
+            <option value="characterOne">Character 1</option>
+            <option value="characterTwo">Character 2</option>
+            <option value="characterThree">Character 3</option>
+          </select>
         </div>
 
         <button>Fight</button>
-    </form>
-
+      </form>
+    </div>
     <!-- En sektion per spelare och karaktär.
         Första div:en i sektionen innehåller spelarinfo.
         Den andra div:en innehåller img-element för attacker/actions -->
 
-    <div class="playerContainer">
-        <h1>Lorem ipsum dolor sit amet.</h1>
-
-        <section class="playerCard">
-            <div>
-                <h2>Petra</h2>
-                <h3>Karaktärsnamn</h2>
-                <span>Health: 380</span>
+      <div class="playerContainer">
+        <!-- <h1>Lorem ipsum dolor sit amet.</h1> -->
+        <div class="playersContainer">
+          <section class="playerCard">
+            <div class="playerInfo">
+              <h2>Petra</h2>
+              <div class="health" id="player1Health"><span>Health:</span> 380</div>
             </div>
             
-            <img src="#" alt="">
+            <img src="./img/Kunimitsu.png" alt="Kunimitsu">
                 
-            <div>
-                <h3>Action</h3>
-                <img src="#" alt="">
-                <img src="#" alt="">
-                <img src="#" alt="">
+            <div class="actionContainer">
+              <h3>Fighter type - Actions</h3>
+              <button><i class="fa-solid fa-bolt fa-2x"></i><br />Flash attack</button>
+              <button class="fightButton" id="fire"><i class="fa-solid fa-fire fa-2x"></i><br />Firekick</button>
+              <button class="fightButton" id="explosion"><i class="fa-solid fa-explosion fa-2x"></i><br />Explosive jab</button>
+              <button class="fightButton" id="blizzard"><i class="fa-solid fa-wind fa-2x"></i><br />Blizzard Combo</button>
+              <!-- <button class="fightButton" id="dragon"><i class="fa-solid fa-dragon"></i> Dragon</button>
+              <button class="fightButton" id="eye"><i class="fa-regular fa-eye"></i>Laser</button> -->
+              <!-- <button class="fightButton" id="blizzard"><i class="fa-solid fa-tornado fa-lg"></i><br />Tornado Kick</button>
+              <a href="#"><i class="fa-solid fa-fire fa-2x"></i> Firekick</a> -->
+              <a href="#"><img src="./img/icons/explosion.png" alt=""></a>
+              <a href="#"><img src="./img/icons/hurricane.png" alt=""></a>
+              <a href="#"><img src="./img/icons/flame.png" alt=""></a>
+              <a href="#"><img src="./img/icons/flash.png" alt=""></a>
             </div>
-            
-        </section>
-        
-        <section class="playerCard">
-            <div>
+              
+          </section>
+          
+          <section class="playerCard">
+              <div>
                 <h2>Andréa</h2>
                 <h3>Karaktärsnamn</h3>
                 <span>Health: 380</span>
-            </div>
+              </div>
 
-            <img src="#" alt="">
+              <img src="./img/Roger_Jr.png" alt="Kunimitsu">
 
-            <div>
+              <div class="actionContainer">
                 <h3>Action</h3>
+                <!-- <img src="#" alt="">
                 <img src="#" alt="">
-                <img src="#" alt="">
-                <img src="#" alt="">
+                <img src="#" alt=""> -->
             </div>
-        </section>
-    </div>
+          </section>
+        </div>
+      </div> 
+    </div>    
+  </body>
+  </html>
     
-    
-</body>
-</html>

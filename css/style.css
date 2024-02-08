@@ -1,4 +1,4 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,21 +6,120 @@
 
 html {
   font-size: 14px; 
-  font-family:;
+  font-family:'Mulish', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
+
+/* body{
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+} */
 
 img{
   max-width:100%;
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: 
+  text-align: center;
+  margin-bottom:0.5rem;
+}
+h5, h6{
+  text-align: left;
 }
 
 h1{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom:1em;
+}
+
+.wrapper{
+  margin:20px auto;
+  max-width:980px;
+}
+
+#formContainer{
+  display:none;
+}
+
+
+/******* PLAYERS ***********/
+
+
+.playersContainer{
+  display: flex;
+  justify-content: space-around;
+  gap:20px;
+
+}
+
+
+.playerCard {
+  /* background-color: chartreuse; */
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* .playerInfo{
+  width:80%;
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom:20px;
 } */
 
+.playerInfo{
+  width:90%;
+  margin-bottom:20px;
+}
+
+.health{
+  font-weight: bold;
+  width:100%;
+  background-color: rgb(147, 1, 1);
+  color:#fff;
+  padding:5px;
+}
+
+
+.playerCard img{
+  height:450px;
+
+  filter: drop-shadow(0 0 0.5rem rgb(174, 174, 174));
+}
+
+.actionContainer{
+  background-color:aliceblue;
+  padding:10px;
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+  gap:10px;
+  justify-content: space-around;
+
+}
+.actionContainer h3{
+  width:100%;
+}
+
+.actionContainer img{
+  max-width:70px;
+  height:auto;
+}
+
+.actionContainer button{
+  padding:5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+}
+
+.playerCard .knockedDown{
+  opacity: 50;
+}
 
 
 
