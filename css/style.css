@@ -83,7 +83,9 @@ h1{
   background-color: rgb(147, 1, 1);
   color:#fff;
   padding:5px;
+  text-align: center;
 }
+
 
 
 .playerCard img{
@@ -109,6 +111,11 @@ h1{
 .actionContainer img{
   max-width:70px;
   height:auto;
+  
+}
+
+.actionImg{
+  margin-left: 20px;
 }
 
 .actionContainer button{
