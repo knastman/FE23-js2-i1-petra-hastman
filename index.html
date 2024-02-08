@@ -9,27 +9,35 @@
   <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"> -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <title>Tekken</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/mainstyles.css">
+  <link rel="stylesheet" href="./css/fighters.css">
   <script src="./main.js" type="module"></script>
 </head>
 <body>
   <div class="wrapper">
     <!-- Div:arna innehåller input, label och rullgardinsmeny för respektive spelare  -->
-    <div id="formContainer">
+    <div id="formContainer" >
       <form>
+        <h2>Choose your fighter!</h2>
         <div>
           <label for="playerOne">Player 1</label>
           <input type="text" name="playerOne" id="playerOne">
           
           <select name="fighterOne" id="fighterOne">
-            <option value="" disabled selected>Choose fighter type</option>
-            <option value="fighterTypeOne">Fighter type  1</option>
-            <option value="fighterTypeTwo">Fighter type  2</option>
-            <option value="fighterTypeThree">Fighter type  3</option>
+            <option value="" disabled selected>Choose fighter</option>
+            <option value="fighterTypeOne">Zangief</option>
+            <option value="fighterTypeTwo">Kunimitsu</option>
+            <!-- <option value="fighterTypeThree">Fighter type  3</option> -->            
           </select>
         </div>
         
@@ -38,73 +46,72 @@
           <input type="text" name="playerTwo" id="playerTwo">
           
           <select name="fighterTwo" id="fighterTwo">
-            <option value="" disabled selected>Choose fighter type</option>
-            <option value="fighterTypeOne">Fighter type 1</option>
-            <option value="fighterTypeTwo">Fighter type  2</option>
-            <option value="fighterTypeThree">Fighter type  3</option>
+            <option value="" disabled selected>Choose fighter</option>
+            <option value="fighterTypeOne">Zangief</option>
+            <option value="fighterTypeTwo">Kunimitsu</option>
+            <!-- <option value="fighterTypeThree">Yoshimitsu</option> -->
           </select>
         </div>
 
         <button class="formButton">Fight</button>
       </form>
     </div>
-    <!-- En sektion per spelare och karaktär.
-        Första div:en i sektionen innehåller spelarinfo.
-        Den andra div:en innehåller img-element för attacker/actions -->
 
-      <div class="playerContainer">
-        <!-- <h1>Lorem ipsum dolor sit amet.</h1> -->
-        <div class="playersContainer">
-          <section class="playerCard">
-            <div class="playerInfo">
-              <h2>Petra</h2>
-              <div class="health" id="player1Health"><span>Health:</span> 380</div>
-            </div>
-            
-            <img src="./img/Kunimitsu.png" alt="Kunimitsu">
-                
-            <div class="actionContainer">
-              <h3>Fighter type - Actions</h3>
-              <button><i class="fa-solid fa-bolt fa-2x"></i><br />Flash attack</button>
-              <button class="fightButton" id="fire"><i class="fa-solid fa-fire fa-2x"></i><br />Firekick</button>
-              <button class="fightButton" id="explosion"><i class="fa-solid fa-explosion fa-2x"></i><br />Explosive jab</button>
-              <button class="fightButton" id="blizzard"><i class="fa-solid fa-wind fa-2x"></i><br />Blizzard Combo</button>
-              <!-- <button class="fightButton" id="dragon"><i class="fa-solid fa-dragon"></i> Dragon</button>
-              <button class="fightButton" id="eye"><i class="fa-regular fa-eye"></i>Laser</button> -->
-              <!-- <button class="fightButton" id="blizzard"><i class="fa-solid fa-tornado fa-lg"></i><br />Tornado Kick</button>
-              <a href="#"><i class="fa-solid fa-fire fa-2x"></i> Firekick</a> -->
-              <a href="#"><img src="./img/icons/explosion.png" alt=""></a>
-              <a href="#"><img src="./img/icons/hurricane.png" alt=""></a>
-              <a href="#"><img src="./img/icons/flame.png" alt=""></a>
-              <a href="#"><img src="./img/icons/flash.png" alt=""></a>
-            </div>
-              
-          </section>
+      <div id="playersContainer">
+        <section class="playerCard">
           
-          <section class="playerCard">
-            <div class="playerInfo">
-              <h2>Andréa as Zangief</h2>
-              <div class="health" id="player2Health"><span>Health:</span> 380</div>
+          <div class="playerHeader">
+            <h3>Petra as Kunimitsu</h3>
+            <div class="health"><span>Health</span> </div>
+            <div class="healthBorder"><div id="healthbarCurrent" id="player1Health">208</div><span>380</span></div>
+            
+            <!-- <div class="health"><span>Max health:</span> 380</div> -->
+            
+          </div>
+          
+          <div class="playerInfo">
+            <div class="actionContainer">
+              <h3>Actions</h3>
+              <div><button class="fightButton" id="blizzard"><img src="./img/icons/hurricane.png" alt="">Blizzard Combo</button></div>
+              <div><button class="fightButton" id="fire"><img src="./img/icons/flame.png" alt="">Firekick</button></div>
+              <div><button class="fightButton" id="fire"><img src="./img/icons/explosion.png" alt="">Explosive jab</button></div>
+              <div><button class="fightButton" id="fire"><img src="./img/icons/flash.png" alt="">Twisted Limbs</button></div>
             </div>
+            <div id="playerImg">
+              <img src="./img/Kunimitsu.png" alt="Kunimitsu">
+            </div>    
+          </div>
+            
+        </section>
+          
+        <section class="playerCard">
+          <div class="playerHeader">
+            <h3>Andréa as Zangief</h3>
+            <!-- <div id="healthbarFull" id="player1Health"><span>Health:</span> 430</div> -->
 
-            <img src="./img/Zangief.webp" alt="Zangief">
+
+            <div class="health"><span>Health</span> </div>
+            <div class="healthBorder"><div id="healthbarFull" id="player1Health">430</div><span>430</span></div>
+
+          </div>
+          <div class="playerInfo">
+            <div id="playerImg">
+              <img src="./img/Zangief.webp" alt="Zangief">
+            </div>
 
             <div class="actionContainer">
-              <h3>Figther type - Actions</h3>
-              <button><i class="fa-solid fa-spray-can-sparkles fa-2x fightButton" ></i><br>Air manipulation</button>
-              <button><i class="fa-solid fa-burst fa-2x fightButton " ></i><br>Focus attack</button>
-              <button><i class="fa-solid fa-hand-fist fa-2x fightButton" ></i><br>Dynamite punch</button>
-              <button><i class="fa-solid fa-battery-full fa-2x fightButton"></i><br>Power kick</button>
-                
-              <a href="#" style="text-decoration:none; color:black;"><img src="./img/icons/dust.png" class="actionImg" alt=""><br>Air manipulation</a>
-              <a href="#"><img src="./img/icons/focus.png" class="actionImg" alt=""></a>
-              <a href="#"><img src="./img/icons/punch.png" class="actionImg" alt=""></a>
-              <a href="#"><img src="./img/icons/battery.png" class="actionImg" alt=""></a>
-                
+              <h3>Actions</h3>
+              <div><button class="fightButton" id="airManipuliation"><img src="./img/icons/dust.png" alt="">Air manipulation</button></div> 
+              <div><button class="fightButton" id="airManipuliation"><img src="./img/icons/focus.png" alt="">Focus attack</button></div>  
+              <div><button class="fightButton" id="airManipuliation"><img src="./img/icons/punch.png" alt="">Dynamite punch</button></div>  
+              <div><button class="fightButton" id="airManipuliation"><img src="./img/icons/battery.png" alt="">Power kick</button></div>  
             </div>
-          </section>
-        </div>
+         </div>
+        </section>
       </div> 
+
+
+      
     </div>    
   </body>
   </html>

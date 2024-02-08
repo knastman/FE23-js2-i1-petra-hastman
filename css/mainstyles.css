@@ -8,12 +8,18 @@ html {
   font-size: 14px; 
   font-family:'Mulish', sans-serif;
   font-family: 'Quicksand', sans-serif;
+  font-family: 'Assistant', sans-serif;
+
 }
 
 /* body{
   background-image: url(../img/background.jpg);
   background-size: cover;
 } */
+
+.hide {
+  display: none !important;
+}
 
 img{
   max-width:100%;
@@ -22,6 +28,7 @@ img{
 h1, h2, h3, h4, h5, h6{
   text-align: center;
   margin-bottom:0.5rem;
+  font-weight: 600;
 }
 h5, h6{
   text-align: left;
@@ -32,48 +39,76 @@ h1{
   text-align: center;
   margin-bottom:1em;
 }
+h2{
+  text-align: center;
+}
 
 .wrapper{
   margin:20px auto;
-  max-width:980px;
+  max-width:1170px;;
 }
 
-/* #formContainer{
-  display:none;
-}
- */
+
+
+/****** FORM **********/
 
  #formContainer{
-   width: 100%;
-   height: 30vh;
+   /* width: 100%; */
+   /* height: 30vh; */
    margin-bottom: 1rem;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+   padding:20px;
+   font-size: 1.2rem;
  }
 
+
  form{
-   height: 30vh;
+  /* height: 30vh; */
   display:flex;
   flex-direction: column;
   align-items:center;
   justify-content: space-evenly;
+  gap:10px;
+  font-size: 1.2rem;
  }
+ 
+form label{
+  font-weight: 600;
+}
+
+form input, form select{
+  font-family: inherit;
+  font-size: 1rem;
+  padding:3px 8px;
+}
+ 
+form div{
+  display:grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  column-gap: 10px;
+}
+
 
  
- 
- /* CSS */
+ /* Button */
  .formButton{
-   padding: 0.6em 2em;
-   border: none;
-   outline: none;
-   color: black;
-   background: #FFF;
-   cursor: pointer;
-   position: relative;
-   z-index: 0;
-   border-radius: 10px;
-   user-select: none;
-   -webkit-user-select: none;
-   touch-action: manipulation;
+  margin-top:10px;
+  padding: 0.4em 1.8em;
+  border: none;
+  outline: none;
+  color: black;
+  background: #FFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
  }
  
  .formButton:before {
@@ -123,96 +158,18 @@ h1{
    width: 100%;
    height: 100%;
    background: #FFF;
+   background: #e9f6f1;
    left: 0;
    top: 0;
    border-radius: 10px;
  }
 
+ .formButton:hover:after {
+   background: #d1f4e7; /* Behöver kanske en bättre färg */
+ }
+
  
-/******* PLAYERS ***********/
 
-
-.playersContainer{
-  display: flex;
-  justify-content: space-around;
-  gap:20px;
-
-}
-
-
-.playerCard {
-  /* background-color: chartreuse; */
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1 1 0px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-/* .playerInfo{
-  width:80%;
-  display:flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  margin-bottom:20px;
-} */
-
-.playerInfo{
-  width:90%;
-  margin-bottom:20px;
-}
-
-.health{
-  font-weight: bold;
-  width:100%;
-  background-color: rgb(147, 1, 1);
-  color:#fff;
-  padding:5px;
-  text-align: center;
-}
-
-
-
-.playerCard img{
-  height:450px;
-
-  filter: drop-shadow(0 0 0.5rem rgb(174, 174, 174));
-}
-
-.actionContainer{
-  background-color:aliceblue;
-  padding:10px;
-  width:100%;
-  display:flex;
-  flex-wrap: wrap;
-  gap:10px;
-  justify-content: space-around;
-
-}
-.actionContainer h3{
-  width:100%;
-}
-
-.actionContainer img{
-  max-width:70px;
-  height:auto;
-  
-}
-
-.actionImg{
-  margin-left: 20px;
-}
-
-.actionContainer button{
-  padding:5px 10px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  cursor: pointer;
-}
-
-.playerCard .knockedDown{
-  opacity: 50;
-}
 
 
 

@@ -1,0 +1,204 @@
+/******* PLAYERS ***********/
+
+/* .playerCard {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+} */
+
+/* .playerInfo{
+  width:80%;
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom:20px;
+} */
+
+
+#playersContainer{
+  display: flex;
+  /* justify-content: space-around; */
+  gap:20px;
+  flex: 1 1 0px;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+#playersContainer h3{
+  font-size: 1.5rem;
+  /* margin-top:0.7rem; */
+}
+
+
+.playerCard {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding:20px;
+}
+
+.playerHeader{
+  /* margin-bottom:20px; */
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+
+#healthbarFull{
+  font-weight: 600;
+  width:100%;
+  background-color: rgb(161, 5, 5);
+  color:#fff;
+  padding:5px;
+  height:30px;
+  font-size: 1.15rem;
+}
+.healthBorder{
+  border:1px solid #ccc;
+  background-color: rgba(161, 5, 5, 0.093);
+  text-align:right;
+  height:32px;
+  
+}
+
+.healthBorder span{
+  font-size: 1.15rem;
+
+  padding-top:-20px;
+}
+
+#healthbarCurrent{
+  width:30%;
+  background-color: rgb(161, 5, 5);
+  color:#fff;
+  padding:5px;
+  font-size: 1.15rem;
+  height:30px;
+}
+.health{
+  border-top:1px solid #dfdede;
+  padding:5px;
+  font-size: 1.15rem;
+}
+
+.playerInfo {
+  /* background-color: chartreuse; */
+  display:flex;
+  align-items: center;
+  margin-top:20px;
+}
+
+#playerImg img{
+  /* height:450px; */
+  /* width:450px; */
+  
+  filter: drop-shadow(0 0 0.5rem rgb(174, 174, 174));
+  margin:10px;
+}
+
+.actionContainer{
+  background-color:aliceblue;
+  padding:10px;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  gap:10px;
+  justify-content: space-around;
+  /* margin:0 15px 0 15px; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  width:125px;
+}
+.actionContainer h3{
+  width:100%;
+}
+
+.actionContainer div button{
+  /* background-color: aqua; */
+  /* max-width:65px; */
+  margin:0 5px 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:90%;
+}
+
+.actionContainer img{
+  max-width:55px;
+  height:auto;
+  filter: drop-shadow(0 0 0.2rem rgb(192, 192, 192));
+}
+
+/* .actionImg{
+  margin-left: 20px;
+} */
+
+
+.fightButton{
+  background-color: transparent;
+  background-color: #fff;
+  padding:5px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border:none;
+  border-radius: 10px;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+.fightButton:hover{
+  border:none;
+  opacity: 75;
+  background-color:rgb(127, 145, 145);
+  background-color:rgb(149, 162, 162);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+}
+
+
+/* .actionContainer button{
+  padding:5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+} */
+
+
+/* .actionContainer button{
+  padding:5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+} */
+/* #blizzard{
+  background:url(../img/icons/hurricane.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  border:none;
+  width:70px;
+  height:70px;
+} */
+
+
+/* 
+.myButton{
+  background:url(./images/but.png) no-repeat;
+  cursor:pointer;
+  border:none;
+  width:100px;
+  height:100px;
+} */
+
+
+
+
+.playerCard .knockedDown{
+  opacity: 50;
+}
