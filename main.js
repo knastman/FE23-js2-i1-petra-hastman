@@ -3,7 +3,7 @@ import { Fighter } from "./modules/fighter.js";
 import { FighterZangief, FighterType } from "./modules/fighterType.js";
 
 const form = document.querySelector('form');
-const attackButtons = document.querySelectorAll('.attack-button');
+const attackButtons = document.querySelectorAll('.attackButton');
 
 // Deklarera här
 const fighterZangief = new FighterZangief();
