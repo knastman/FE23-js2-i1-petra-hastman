@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="#" type="image/x-icon">
-  <script src="https://kit.fontawesome.com/3a14b5ad60.js" crossorigin="anonymous"></script>
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"> -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/3a14b5ad60.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <title>Tekken</title>
-  <link rel="stylesheet" href="./css/mainstyles.css">
-  <link rel="stylesheet" href="./css/fighters.css">
-  <script src="./main.js" type="module"></script>
-</head>
-<body>
-  <div class="wrapper">
-    <!-- Div:arna innehåller input, label och rullgardinsmeny för respektive spelare  -->
-    <div id="formContainer" >
-      <form>
-        <h2>Choose your fighter!</h2>
-        <div>
-          <label for="playerOne">Player 1</label>
-          <input type="text" name="playerOne" id="playerOne">
+    <title>Tekken</title>
+    <link rel="stylesheet" href="./css/mainstyles.css">
+    <link rel="stylesheet" href="./css/fighters.css">
+    <script src="./main.js" type="module"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="formContainer" >
+        <form>
+          <h2>Choose your fighter!</h2>
+          <div>
+            <label for="playerOne">Player 1</label>
+            <input type="text" name="playerOne" id="playerOne">
+            
+            <select name="fighterOne" id="fighterOne">
+              <option value="" disabled selected>Choose fighter</option>
+              <option value="Zangief">Zangief</option>
+              <option value="Kunimitsu">Kunimitsu</option>
+              <!-- <option value="fighterTypeThree">Fighter type  3</option> -->            
+            </select>
+          </div>
           
-          <select name="fighterOne" id="fighterOne">
-            <option value="" disabled selected>Choose fighter</option>
-            <option value="Zangief">Zangief</option>
-            <option value="Kunimitsu">Kunimitsu</option>
-            <!-- <option value="fighterTypeThree">Fighter type  3</option> -->            
-          </select>
-        </div>
-        
-        <div>
-          <label for="playerTwo">Player 2</label>
-          <input type="text" name="playerTwo" id="playerTwo">
-          
-          <select name="fighterTwo" id="fighterTwo">
-            <option value="" disabled selected>Choose fighter</option>
-            <option value="Zangief">Zangief</option>
-            <option value="Kunimitsu">Kunimitsu</option>
-            <!-- <option value="fighterTypeThree">Yoshimitsu</option> -->
-          </select>
-        </div>
+          <div>
+            <label for="playerTwo">Player 2</label>
+            <input type="text" name="playerTwo" id="playerTwo">
+            
+            <select name="fighterTwo" id="fighterTwo">
+              <option value="" disabled selected>Choose fighter</option>
+              <option value="Zangief">Zangief</option>
+              <option value="Kunimitsu">Kunimitsu</option>
+              <!-- <option value="fighterTypeThree">Yoshimitsu</option> -->
+            </select>
+          </div>
 
-        <button class="formButton">Fight</button>
-      </form>
-    </div>
+          <button class="formButton">Fight</button>
+        </form>
+      </div>
 
       <div id="playersContainer">
         <section class="playerCard">
-          
           <div class="playerHeader">
-            <div class="playerNameOne"></div>
-            <div class="health"><span>Health</span> </div>
-            <div class="healthBorder"><div id="healthbarCurrent" id="player1Health">208</div><span>380</span></div>
-            
-            <!-- <div class="health"><span>Max health:</span> 380</div> -->
-            
+            <div class="playerNameOne"><h3>Petra as Kunimitsu</h3></div>
+            <div id="health">
+              <!-- <div class="health"><span>Health</span> </div> -->
+              <div class="healthBorder"><div id="healthbarCurrent" id="player1Health">208</div><span>380</span></div>
+              <!-- <div class="health"><span>Max health:</span> 380</div> -->   
+            </div>       
           </div>
           
           <div class="playerInfo">
@@ -79,14 +69,14 @@
               </div>
 
               <div>
-                <button class="fightButton attack-button" data-attack-name="firekick" data-attack-damage="85" id="shurikenThrow">
-                  <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
-                </button>
-              </div>
-
-              <div>
                 <button class="fightButton attack-button" data-attack-name="explosive jab" data-attack-damage="25" id="explosiveJab">
                   <img src="./img/icons/explosion.png" alt="">Explosive jab
+                </button>
+              </div>            
+
+              <div>
+                <button class="fightButton attack-button" data-attack-name="firekick" data-attack-damage="85" id="shurikenThrow">
+                  <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
                 </button>
               </div>
 
@@ -144,13 +134,11 @@
                 </button>
               </div>  
             </div>
-         </div>
+          </div>
         </section>
       </div> 
-
-
-      
+        
     </div>    
   </body>
-  </html>
+</html>
     
