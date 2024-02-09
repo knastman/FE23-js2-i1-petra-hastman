@@ -49,29 +49,26 @@ h2{
 }
 
 
-
 /****** FORM **********/
 
  #formContainer{
-   /* width: 100%; */
-   /* height: 30vh; */
-   margin-bottom: 1rem;
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-   padding:20px;
-   font-size: 1.2rem;
+    /* display:none; */
+    margin-bottom: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding:20px;
+    font-size: 1.2rem;
  }
 
 
- form{
-  /* height: 30vh; */
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: space-evenly;
-  gap:10px;
-  font-size: 1.2rem;
- }
+  form{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-evenly;
+    gap:10px;
+    font-size: 1.2rem;
+  }
  
 form label{
   font-weight: 600;

@@ -12,4 +12,11 @@ function displayPlayerInfo(playerInfo, container){
     
 }
 
+const playerCard = document.querySelectorAll('.playerCard');
+
+function displayFigher(playertype, playerimage, maxhealth, actions){
+  createAndAppendElement('h3', playerInfo, container);
+  
+}
+
 export {displayPlayerInfo}

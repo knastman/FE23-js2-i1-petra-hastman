@@ -1,10 +1,14 @@
+
+
 class Fighter{
     #name
     #maxHealth
+    
     constructor(name, maxHealth, attackArray){
-        this.#name = name
-        this.#maxHealth = maxHealth;
-        this.attackArray = [];
+      this.#name = name
+      this.#maxHealth = maxHealth;
+      // this.currentHealth = currentHealth;
+      this.attackArray = [];
         
     }
 

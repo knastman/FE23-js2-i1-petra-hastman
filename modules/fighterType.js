@@ -10,7 +10,7 @@ class FighterZangief extends Fighter {
     }
 }
 
-class FighterType extends Fighter{
+class FighterKunimitsu extends Fighter{
     constructor(name, maxHealth){
         super('Zelda', 650);
         
@@ -22,4 +22,4 @@ class FighterType extends Fighter{
 
 }
 
-export {FighterZangief, FighterType}
+export {FighterZangief, FighterKunimitsu}

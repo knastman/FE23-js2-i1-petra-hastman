@@ -1,14 +1,13 @@
 import { displayPlayerInfo } from "./modules/display.js";
 import { Fighter } from "./modules/fighter.js";
-import { FighterZangief, fighterKunimitsu } from "./modules/fighterType.js";
+import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 
 const form = document.querySelector('form');
 const attackButtons = document.querySelectorAll('.attackButton');
 
 // Deklarera här
 const fighterZangief = new FighterZangief();
-const fighterkunimitsu = new fighterKunimitsu(); //ska det inte vara fighterKunimitsu där det står "figbtertype?""
-// const newFighterType = new FighterType();
+const fighterKunimitsu = new FighterKunimitsu(); 
 
 
 /*********************************
@@ -21,15 +20,13 @@ form.addEventListener('submit', (event) => {
     
     const playerOne = document.querySelector('#playerOne'); 
     const playerTwo = document.querySelector('#playerTwo');
-    //Borde det inte vara value här istället
-
-    const fighterTypeOne = document.querySelector('#fighterOne').value;
-    const fighterTypeTwo = document.querySelector('#fighterTwo').value;
+    const fighterTypeOne = document.querySelector('#fighterOne');
+    const fighterTypeTwo = document.querySelector('#fighterTwo');
     const playerOneContainer = document.querySelector('.playerNameOne');
-    const playerTwoContainer = document.querySelector('.playerNameTwo')
+    const playerTwoContainer = document.querySelector('.playerNameTwo');
 
-    const typeAndPlayerOne = `${playerOne.value} as ${fighterTypeOne}`; 
-    const typeAndPlayerTwo = `${playerTwo.value} as ${fighterTypeTwo}`;
+    const typeAndPlayerOne = `${playerOne.value} as ${fighterTypeOne.value}`; 
+    const typeAndPlayerTwo = `${playerTwo.value} as ${fighterTypeTwo.value}`;
     //Eller att båda har value här? 
     
     playerOneContainer.innerHTML = '';
@@ -39,10 +36,8 @@ form.addEventListener('submit', (event) => {
     displayPlayerInfo(typeAndPlayerTwo, playerTwoContainer);  
     //Ska man inte bygga hela typsnittet, utifrån val av fightertyp här, blir det inte konstigt att bara hämta en sak -> allt hänger ihop? 
     
-    playerOne.value = ''; // Är detta för att tömma formuläret eller? 
-    playerTwo.value = '';
 
-    // form.reset(); ska denna kanske vara med? 
+    form.reset(); //ska denna kanske vara med? 
 });
 
 
@@ -56,11 +51,11 @@ attackButtons.forEach(button => {
         // Hämta värden från data-attributen för den klickade knappen
         const attackName = button.getAttribute('data-attack-name');
         const attackDamage = button.getAttribute('data-attack-damage');
-        fighterkunimitsu.clearAttacks();
+        fighterKunimitsu.clearAttacks();
         fighterZangief.clearAttacks();
         fighterZangief.addAttack(attackName, parseInt(attackDamage));
-        fighterkunimitsu.addAttack(attackName, parseInt(attackDamage));
-        console.log(fighterkunimitsu.getAttackArray());
+        fighterKunimitsu.addAttack(attackName, parseInt(attackDamage));
+        console.log(fighterKunimitsu.getAttackArray());
        
     });
 });
