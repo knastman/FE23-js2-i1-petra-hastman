@@ -44,20 +44,28 @@ form.addEventListener('submit', (event) => {
   Attack types handlers
 **********************************/
 
-// Lägg till ett klicklyssnare för varje knapp
 attackButtons.forEach(button => {
     button.addEventListener('click', function() {
         // Hämta värden från data-attributen för den klickade knappen
         const attackName = button.getAttribute('data-attack-name');
-        const attackDamage = button.getAttribute('data-attack-damage');
-        fighterKunimitsu.clearAttacks();
-        fighterZangief.clearAttacks();
-        fighterZangief.addAttack(attackName, parseInt(attackDamage));
-        fighterKunimitsu.addAttack(attackName, parseInt(attackDamage));
-        console.log(fighterKunimitsu.getAttackArray());
-       
+        if (attackName === 'air manipulation') {
+            fighterZangief.setAttackStyle(40);
+           
+        } else if(attackName === 'focus attack'){
+            fighterZangief.setAttackStyle(85);
+            
+        } else if(attackName === 'dynamite punch'){
+            fighterZangief.setAttackStyle(25);
+            
+        } else {
+            fighterZangief.setAttackStyle(205);
+            
+        }
+
+        console.log('Current Attack:', fighterZangief.getCurrentAttack());
     });
 });
+
 /* const newFighter = new FighterZangief();
 const newFighterTwo = new fighterKunimitsu(); */
 /* newFighter.logInfo();

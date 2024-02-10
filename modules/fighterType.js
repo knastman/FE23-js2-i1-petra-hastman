@@ -1,13 +1,15 @@
 import { Fighter } from "./fighter.js";
 
 class FighterZangief extends Fighter {
-    constructor(name, maxHealth) {
-        super('Zangief', 850);
+    constructor(name, maxHealth, damage) {
+        super('Zangief', 850, damage);
+       
+    
        
     }
-    addAttack(name, damage) {
-        this.attackArray.push({ name, damage });
-    }
+
+    
+    
 }
 
 class FighterKunimitsu extends Fighter{
@@ -16,9 +18,7 @@ class FighterKunimitsu extends Fighter{
         
     }
 
-    addAttack(name, damage) {
-        this.attackArray.push({ name, damage });
-    }
+    
 
 }
 

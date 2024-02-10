@@ -1,35 +1,39 @@
-
-
-class Fighter{
-    #name
-    #maxHealth
+class Fighter {
+    #name;
+    #maxHealth;
+    #currentAttack;
+    #damage;
     
-    constructor(name, maxHealth, attackArray){
-      this.#name = name
-      this.#maxHealth = maxHealth;
-      // this.currentHealth = currentHealth;
-      this.attackArray = [];
-        
+    constructor(name, maxHealth, damage) {
+        this.#name = name;
+        this.#maxHealth = maxHealth;
+        this.#damage = damage;
     }
 
-    getName(){
+    getName() {
         return this.#name;
     }
-    getmaxHealth(){
+
+    getmaxHealth() {
         return this.#maxHealth;
     }
 
-    getAttackArray() {
-        if (this.attackArray.length === 0) {
-            return 'No attacks available.';
-        } 
-        else {
-            return this.attackArray;
-        }
+    addAttack() {
+        return this.#damage;
     }
-    clearAttacks() {
+
+    
+    setAttackStyle(damage) {
+        this.#currentAttack = damage;
+    }
+    getCurrentAttack() {
+        return this.#currentAttack;
+    }
+    
+   
+    /* clearAttacks() {
         this.attackArray = [];
-    }
+    } */
     logInfo() {
         console.log(`${this.getName()} Health: ${this.getmaxHealth()}`);
     }
