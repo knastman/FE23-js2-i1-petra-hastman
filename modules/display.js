@@ -8,6 +8,7 @@ function createAndAppendElement(type, content, container){
 }
 
 function displayPlayerInfo(playerInfo, container){
+    // createAndAppendElement('h3', playerInfo, container);
     createAndAppendElement('h3', playerInfo, container);
     
 }

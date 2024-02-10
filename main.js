@@ -17,13 +17,12 @@ const fighterKunimitsu = new FighterKunimitsu();
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     
-    
     const playerOne = document.querySelector('#playerOne'); 
     const playerTwo = document.querySelector('#playerTwo');
     const fighterTypeOne = document.querySelector('#fighterOne');
     const fighterTypeTwo = document.querySelector('#fighterTwo');
-    const playerOneContainer = document.querySelector('.playerNameOne');
-    const playerTwoContainer = document.querySelector('.playerNameTwo');
+    const playerOneContainer = document.querySelector('#playerNameOne');
+    const playerTwoContainer = document.querySelector('#playerNameTwo');
 
     const typeAndPlayerOne = `${playerOne.value} as ${fighterTypeOne.value}`; 
     const typeAndPlayerTwo = `${playerTwo.value} as ${fighterTypeTwo.value}`;
