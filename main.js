@@ -3,7 +3,8 @@ import { Fighter } from "./modules/fighter.js";
 import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 
 const form = document.querySelector('form');
-const attackButtons = document.querySelectorAll('.attackButton');
+const kunimitsuButton = document.querySelectorAll('.kunimitsuButton');
+const zangiefButton = document.querySelectorAll('.zangiefButton');
 
 // Deklarera här
 const fighterZangief = new FighterZangief();
@@ -44,40 +45,122 @@ form.addEventListener('submit', (event) => {
   Attack types handlers
 **********************************/
 
-attackButtons.forEach(button => {
+zangiefButton.forEach(button => {
     button.addEventListener('click', function() {
-        // Hämta värden från data-attributen för den klickade knappen
         const attackName = button.getAttribute('data-attack-name');
         if (attackName === 'air manipulation') {
-            fighterZangief.setAttackStyle(40);
-           
-        } else if(attackName === 'focus attack'){
-            fighterZangief.setAttackStyle(85);
-            
-        } else if(attackName === 'dynamite punch'){
-            fighterZangief.setAttackStyle(25);
-            
-        } else {
-            fighterZangief.setAttackStyle(205);
-            
+            const damage = 40;
+            if (fighterKunimitsu.hitOrMiss()) {
+                fighterKunimitsu.applyDamage(damage);
+                console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
+            }
+        } 
+        else if(attackName === 'focus attack'){
+            const damage = 85;
+            if (fighterKunimitsu.hitOrMiss()) {
+                fighterKunimitsu.applyDamage(damage);
+                console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
+            }
+        }
+        else if(attackName === 'dynamite punch'){
+            const damage = 25;
+            if (fighterKunimitsu.hitOrMiss()) {
+                fighterKunimitsu.applyDamage(damage);
+                console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
+            }
         }
 
-        console.log('Current Attack:', fighterZangief.getCurrentAttack());
+        else {
+            const damage = 250;
+             if (fighterKunimitsu.hitOrMiss()) {
+                fighterKunimitsu.applyDamage(damage);
+                console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
+            }
+            
+            
+        }
+        setTurn(toggleTurn());
     });
 });
 
-/* const newFighter = new FighterZangief();
-const newFighterTwo = new fighterKunimitsu(); */
-/* newFighter.logInfo();
-newFighterTwo.logInfo();
-newFighter.addAttack('air manipulation', 40);
-newFighter.addAttack('focus attack', 85);
-newFighter.addAttack('dynamite punch', 25);
-newFighter.addAttack('power kick', 205);
-newFighter.getAttackArray();
-newFighterTwo.addAttack('Flash Attack', 40);
-newFighterTwo.addAttack('firekick', 85);
-newFighterTwo.addAttack('explosive jab', 25);
-newFighterTwo.addAttack('blizzard combo', 205);
-newFighterTwo.getAttackArray(); */
+kunimitsuButton.forEach(button => {
+    button.addEventListener('click', function() {
+        const attackName = button.getAttribute('data-attack-name');
+        if (attackName === 'blizzard combo') {
+            const damage = 40;
+            if (fighterZangief.hitOrMiss()) {
+                fighterZangief.applyDamage(damage);
+                console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterZangief.getName()} dodges the attack!`);
+            }
+        }
+        else if (attackName === 'explosive jab') {
+            const damage = 85;
+            if (fighterZangief.hitOrMiss()) {
+                fighterZangief.applyDamage(damage);
+                console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterZangief.getName()} dodges the attack!`);
+            }
+        }
+
+        else if (attackName === 'shuriken throw') {
+            const damage = 85;
+            if (fighterZangief.hitOrMiss()) {
+                fighterZangief.applyDamage(damage);
+                console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterZangief.getName()} dodges the attack!`);
+            }
+        }
+
+        else {
+            const damage = 250;
+            if (fighterZangief.hitOrMiss()) {
+                fighterZangief.applyDamage(damage);
+                console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
+            } else {
+                console.log(`${fighterZangief.getName()} dodges the attack!`);
+            }
+        }
+        setTurn(toggleTurn());
+    });
+});
+
+
+// Inte helt nöjd med placering här, kikar över bättre lösning imorgon 
+let isKunimitsuTurn = true;
+
+function setTurn() {
+    if (isKunimitsuTurn) {
+        zangiefButton.forEach(button => {
+            button.disabled = true;
+        });
+        kunimitsuButton.forEach(button => {
+            button.disabled = false;
+        });
+    } else {
+        kunimitsuButton.forEach(button => {
+            button.disabled = true;
+        });
+        zangiefButton.forEach(button => {
+            button.disabled = false;
+        });
+    }
+}
+
+function toggleTurn() {
+    isKunimitsuTurn = !isKunimitsuTurn;
+    
+}
+
 

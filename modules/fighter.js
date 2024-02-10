@@ -1,42 +1,37 @@
 class Fighter {
     #name;
     #maxHealth;
-    #currentAttack;
     #damage;
     
-    constructor(name, maxHealth, damage) {
+    constructor(name, maxHealth, damage, currentHealth) {
         this.#name = name;
         this.#maxHealth = maxHealth;
         this.#damage = damage;
+        this.currentHealth = maxHealth;
     }
 
     getName() {
         return this.#name;
     }
 
-    getmaxHealth() {
+    getMaxHealth() {
         return this.#maxHealth;
     }
 
-    addAttack() {
-        return this.#damage;
+    applyDamage(damage) {
+        this.currentHealth -= damage;
+        if (this.currentHealth < 0) {
+            this.currentHealth = 0;
+            console.log('Game over! Restarting the game...');
+        }
     }
 
-    
-    setAttackStyle(damage) {
-        this.#currentAttack = damage;
+    hitOrMiss() {
+        const random = Math.random();
+        return random < 0.5; 
     }
-    getCurrentAttack() {
-        return this.#currentAttack;
-    }
-    
+
    
-    /* clearAttacks() {
-        this.attackArray = [];
-    } */
-    logInfo() {
-        console.log(`${this.getName()} Health: ${this.getmaxHealth()}`);
-    }
 
 }
 

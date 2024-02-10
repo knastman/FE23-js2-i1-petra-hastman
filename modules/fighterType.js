@@ -13,8 +13,8 @@ class FighterZangief extends Fighter {
 }
 
 class FighterKunimitsu extends Fighter{
-    constructor(name, maxHealth){
-        super('Zelda', 650);
+    constructor(name, maxHealth, damage){
+        super('Zelda', 650, damage);
         
     }
 
