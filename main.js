@@ -1,6 +1,6 @@
 // import { displayPlayerInfo, displayFigher } from "./modules/display.js";
 import { displayFighers } from "./modules/display.js";
-import { Fighter, Attacklist } from "./modules/fighter.js";
+import { Fighter, Attacklist, Attack } from "./modules/fighter.js";
 // import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 import { FighterType} from "./modules/fighterType.js";
 import {setTurn, toggleTurn} from "./modules/attacks.js";
@@ -191,23 +191,36 @@ form.addEventListener('submit', (event) => {
 
 const fighter1 = new FighterType('Kunimitsu', 650); 
 
-const kunimitsuAttackList = new Attacklist([{attackname: 'Blizzard combo', attackdamage: 40}]); //Funkar ej att lägga in objext såhär, kolla upp
-kunimitsuAttackList.showAttacks();
-kunimitsuAttackList.addAttack({attackname: 'Blizzard combo', attackdamage: 40});
-kunimitsuAttackList.addAttack({attackname: 'explosive jab', attackdamage: 85});
+fighter1.getName();
 
-console.log(kunimitsuAttackList.list); //Dena visar rätt
+// const kunimitsuAttackList = new Attacklist([{attackname: 'Blizzard combo', attackdamage: 40}]); //Funkar ej att lägga in objext såhär, kolla upp
+// const kunimitsuAttackList = new Attacklist(['Blizzard combo', 40]);
+const kunimitsuAttackList = new Attacklist();
+const kunimitsuAttack1 = new Attack('Blizzard combo', 40); // Detta funkar men behöver bli en array? Som ovan
+kunimitsuAttackList.getAttacks();
 
-const kattacklist = kunimitsuAttackList.list;
-console.log(kattacklist);
+kunimitsuAttack1.getAttackName();
+kunimitsuAttack1.getAttackDamage();
+
+
+// kunimitsuAttackList.setAttack({attackname: 'Blizzard combo', attackdamage: 40});
+// kunimitsuAttackList.setAttack({attackname: 'explosive jab', attackdamage: 85});
+// kunimitsuAttackList.setAttack(['explosive jab',  85]);
+
+// console.log(kunimitsuAttackList.list); //Denna visar rätt
+
+// const kattacklist = kunimitsuAttackList.list;
+// console.log(kattacklist);
 
 // KunimitsuAttackList = {attackName: 'Blizzard combo', attackDamage: 40, attackRisk: 1}
 
-fighter1.getName();
-kunimitsuAttackList.showAttacks();
+
+
 console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
 // console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${fighter1.attacklist()}`);
-console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.showAttacks()} or ${kattacklist}`); //Denna visar bara undefined eller object
+console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.getAttacks()}` ); //Denna visar bara undefined eller object
+
+console.log(`${fighter1.getName()} have  these attacks: ${kunimitsuAttack1.getAttackName()} that has the value ${kunimitsuAttack1.getAttackDamage()} ` ); 
 
 
 // Flytta detta till display eller går det göra en export så det går att hämta i flera functioner/filer

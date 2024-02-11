@@ -33,17 +33,17 @@ class Fighter {
     return random < 0.5; 
   }
 
-  setAttacks() {
-    this.attacklist.push(attackObj);
-  }
+  // setAttacks() {
+  //   this.attacklist.push(attackObj);
+  // }
 
-  getAttacks() {
-    console.log(this.#attacklist);
-    for (const attack of this.attacklist ){
-      console.log(`${attackObj.attackName}, ${attackObj.attackDamage}`);
-      // return this.#attacklist;
-    }  
-  }
+  // getAttacks() {
+  //   console.log(this.#attacklist);
+  //   for (const attack of this.attacklist ){
+  //     console.log(`${attackObj.attackName}, ${attackObj.attackDamage}`);
+  //     // return this.#attacklist;
+  //   }  
+  // }
 }
 
 
@@ -51,18 +51,36 @@ class Fighter {
 export class Attacklist { 
   constructor(listName){
     this.listName = listName;
-    this.list = [];
+    this.attacks = [];
   }
-  addAttack(attackobject){
-    this.list.push(attackobject);
+  setAttack(attackobject){
+    // this.attacks[0] = attack;
+    this.attacks.push(attackobject);
     console.log(attackobject.attackname);
 
   }
-  showAttacks(){    
-    for (const attack of this.list ){ 
+  getAttacks(){    
+    for (const attack of this.attacks ){ 
       console.log(`${attack.attackname}, ${attack.attackdamage}`);
     }
+    return this.attacks;
     // return this.list;
+  }
+}
+
+
+//Detta är bara lite testning. Jag vill få in attackerna som object på fightern eg
+export class Attack { 
+  constructor(attackName, attackDamage){
+    // this.fighter = fighter;
+    this.attackName = attackName;
+    this.attackDamage = attackDamage;
+  }
+  getAttackName(){    
+    return this.attackName;
+  }
+  getAttackDamage(){    
+    return this.attackDamage;
   }
 }
 
