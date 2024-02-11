@@ -207,7 +207,7 @@ fighter1.getName();
 kunimitsuAttackList.showAttacks();
 console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
 // console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${fighter1.attacklist()}`);
-console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.showAttacks()}`); //Denna visar bara object
+console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.showAttacks()} or ${kattacklist}`); //Denna visar bara undefined eller object
 
 
 // Flytta detta till display eller går det göra en export så det går att hämta i flera functioner/filer

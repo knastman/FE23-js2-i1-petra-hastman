@@ -41,7 +41,7 @@ export function displayFighers(fighterType1, playerName1, fighterType2, playerNa
   fighter1.getName();
 
   //HUr hämtar jag in objectet och dess info här
-  console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
+  console.log(`${fighter1.getName()} have ${fighter1.getMaxHealth()} in maxhealth`);
 
   console.log('fighterType');
   console.log(FighterType);
