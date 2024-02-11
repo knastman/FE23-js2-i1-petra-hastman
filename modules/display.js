@@ -1,4 +1,4 @@
-import { fighterType} from "./fighterType.js";
+import { FighterType} from "./fighterType.js";
 
 
 // function createAndAppendElement(type, content, container){
@@ -37,14 +37,14 @@ const playerTwoContainer = document.querySelector('#playerNameTwo');
 
 // }
 export function displayFighers(fighterType1, playerName1, fighterType2, playerName2){
-  const fighter1 = new fighterType('fighterType1'); 
+  const fighter1 = new FighterType('fighterType1'); 
   fighter1.getName();
 
   //HUr hämtar jag in objectet och dess info här
   console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
 
   console.log('fighterType');
-  console.log(fighterType);
+  console.log(FighterType);
 
   const playerHeader1 = document.createElement('h3');
   const playerHeader2 = document.createElement('h3');

@@ -1,8 +1,8 @@
 // import { displayPlayerInfo, displayFigher } from "./modules/display.js";
 import { displayFighers } from "./modules/display.js";
-import { Fighter } from "./modules/fighter.js";
-import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
-import { fighterType} from "./modules/fighterType.js";
+import { Fighter, Attacklist } from "./modules/fighter.js";
+// import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
+import { FighterType} from "./modules/fighterType.js";
 import {setTurn, toggleTurn} from "./modules/attacks.js";
 
 const form = document.querySelector('form');
@@ -16,8 +16,8 @@ const playersContainer = document.querySelector('#playersContainer');
 // const fighterZangief = new FighterZangief();
 // const fighterKunimitsu = new FighterKunimitsu(); 
 
-const fighterZangief = new fighterType('Zangief', 520);
-const fighterKunimitsu = new fighterType('Kunimitsu', 430); 
+const fighterZangief = new FighterType('Zangief', 520);
+const fighterKunimitsu = new FighterType('Kunimitsu', 430); 
 
 /*********************************
  Get values from form
@@ -44,8 +44,7 @@ form.addEventListener('submit', (event) => {
 
     const playerTwoName = `${playerTwo.value}`;
     const fighterChoice2 = `${fighterTypeTwo.value}`; 
-    // console.log('Player1 name: '+ playerTwoName);
-    // console.log('Player1 choice: '+ fighterChoice2);
+  
 
     displayFighers(fighterChoice1, playerOneName, fighterChoice2, playerTwoName );
     
@@ -186,15 +185,30 @@ form.addEventListener('submit', (event) => {
 
 
 
-
-
-
 /*********************************
   Get info from class TEST
 **********************************/
 
-const fighter1 = new fighterType('Kunimitsu', 650); 
+const fighter1 = new FighterType('Kunimitsu', 650); 
+
+const kunimitsuAttackList = new Attacklist([{attackname: 'Blizzard combo', attackdamage: 40}]); //Funkar ej att lägga in objext såhär, kolla upp
+kunimitsuAttackList.showAttacks();
+kunimitsuAttackList.addAttack({attackname: 'Blizzard combo', attackdamage: 40});
+kunimitsuAttackList.addAttack({attackname: 'explosive jab', attackdamage: 85});
+
+console.log(kunimitsuAttackList.list); //Dena visar rätt
+
+const kattacklist = kunimitsuAttackList.list;
+console.log(kattacklist);
+
+// KunimitsuAttackList = {attackName: 'Blizzard combo', attackDamage: 40, attackRisk: 1}
 
 fighter1.getName();
+kunimitsuAttackList.showAttacks();
 console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
+// console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${fighter1.attacklist()}`);
+console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.showAttacks()}`); //Denna visar bara object
+
+
+// Flytta detta till display eller går det göra en export så det går att hämta i flera functioner/filer
 

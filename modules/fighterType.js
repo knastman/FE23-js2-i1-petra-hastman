@@ -14,11 +14,12 @@ class FighterKunimitsu extends Fighter{
 }
 
 
-export class fighterType extends Fighter{
-  constructor(name, maxHealth){
-    super(name, maxHealth);
-      
+export class FighterType extends Fighter{
+  constructor(name, maxHealth, attacklist){
+    super(name, maxHealth, attacklist); 
   }
 }
 
-export {FighterZangief, FighterKunimitsu}
+
+
+export {FighterZangief, FighterKunimitsu};
