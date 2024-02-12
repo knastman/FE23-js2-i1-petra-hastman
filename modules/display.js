@@ -1,7 +1,6 @@
 // import { FighterType} from "./fighterType.js";
 import { FighterKunimitsu, FighterZangief} from "./fighterType.js";
 
-
 // function createAndAppendElement(type, content, container){
 //     const element = document.createElement(type);
 //     container.append(element);
@@ -18,27 +17,9 @@ import { FighterKunimitsu, FighterZangief} from "./fighterType.js";
 //     createAndAppendElement('h3', playerInfo, container);
 // }
 
-
-
-
-
-
-// export function displayFigher(fighterType, playerName){
-
-//   const playerHeader = document.createElement('h3');
-//   playerOneContainer.append(playerHeader);
-//   playerHeader.innerText = `${playerName} as ${fighterType} `;
-
-//   // for(const prop in fighterType){
-//   //   console.log(prop, fighterType[prop]);  
-//   // }
-//   // for(const prop in Kunimitsu){
-//   //   console.log(prop, Kunimitsu[prop]);  
-//   // }
-
-// }
-
-
+/**************************
+ Choice of player from form
+ ***************************/
 function createFighter(name) {
   if (name === "Kunimitsu") {
     return new FighterKunimitsu();
@@ -50,6 +31,14 @@ function createFighter(name) {
   return null;
 }
 
+
+/**************************
+    Builds parts of interface
+ ***************************
+
+
+  HEALTH
+ ***************************/  
 
 function createHealthElement(){
   // const health = document.querySelector('#health');
@@ -79,12 +68,13 @@ function createHealthElement(){
   healthbarDiv.append(healthInfoDiv);
   healthInfoDiv.append(healthspan1, healthspan2);
 
-
-
   return divHealth;
 
-
 }
+
+/*******************************
+    Builds fighter interface
+ *****************************'/
 
 
 export function displayFighers(fighterType1, playerName1, fighterType2, playerName2){
@@ -93,7 +83,6 @@ export function displayFighers(fighterType1, playerName1, fighterType2, playerNa
 
   const playerHeader1 = document.querySelector('#playerHeader1');
   const playerHeader2 = document.querySelector('#playerHeader2');
-
 
   const playerNameOne = document.querySelector('#playerNameOne');
   const playerNameTwo = document.querySelector('#playerNameTwo');
@@ -129,7 +118,6 @@ export function displayFighers(fighterType1, playerName1, fighterType2, playerNa
   // playerHeader2.innerText = `${playerName2} as ${fighterType2} `;
 
 
-
   // const fighter1 = new FighterType('fighterType1'); 
   // fighter1.getName();
 
@@ -138,15 +126,6 @@ export function displayFighers(fighterType1, playerName1, fighterType2, playerNa
 
   // console.log('fighterType');
   // console.log(FighterType);
-
-
-
-//  returna divhealth som innehåller resten av gränssittet
-
-
-
-
-  
 
   // for(const prop in fighterType){
   //   console.log(prop, fighterType[prop]);  
@@ -157,3 +136,22 @@ export function displayFighers(fighterType1, playerName1, fighterType2, playerNa
 }
 
 // export {displayPlayerInfo}
+
+
+
+
+
+// export function displayFigher(fighterType, playerName){
+
+//   const playerHeader = document.createElement('h3');
+//   playerOneContainer.append(playerHeader);
+//   playerHeader.innerText = `${playerName} as ${fighterType} `;
+
+//   // for(const prop in fighterType){
+//   //   console.log(prop, fighterType[prop]);  
+//   // }
+//   // for(const prop in Kunimitsu){
+//   //   console.log(prop, Kunimitsu[prop]);  
+//   // }
+
+// }
