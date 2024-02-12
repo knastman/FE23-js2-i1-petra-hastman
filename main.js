@@ -1,9 +1,10 @@
 // import { displayPlayerInfo, displayFigher } from "./modules/display.js";
 import { displayFighers } from "./modules/display.js";
-import { Fighter, Attacklist, Attack } from "./modules/fighter.js";
+import { Fighter, Attack } from "./modules/fighter.js";
 // import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
-import { FighterType} from "./modules/fighterType.js";
+// import { FighterType} from "./modules/fighterType.js";
 import {setTurn, toggleTurn} from "./modules/attacks.js";
+import { FighterKunimitsu, FighterZangief } from "./modules/fighterType.js";
 
 const form = document.querySelector('form');
 const formContainer = document.querySelector('#formContainer');
@@ -16,8 +17,8 @@ const playersContainer = document.querySelector('#playersContainer');
 // const fighterZangief = new FighterZangief();
 // const fighterKunimitsu = new FighterKunimitsu(); 
 
-const fighterZangief = new FighterType('Zangief', 520);
-const fighterKunimitsu = new FighterType('Kunimitsu', 430); 
+// const fighterZangief = new FighterType('Zangief', 520);
+// const fighterKunimitsu = new FighterType('Kunimitsu', 430); 
 
 /*********************************
  Get values from form
@@ -34,28 +35,26 @@ form.addEventListener('submit', (event) => {
     const fighterTypeOne = document.querySelector('#fighterOne');
     const fighterTypeTwo = document.querySelector('#fighterTwo');
 
-    // const typeAndPlayerOne = `${playerOne.value} as ${fighterTypeOne.value}`; 
-    // const typeAndPlayerOne = `${playerOne.value} as ${fighterTypeOne.value}`;
+
 
     const playerOneName = `${playerOne.value}`;
+    // const fighterChoice1 = createFighter(`${fighterTypeOne.value}`); 
     const fighterChoice1 = `${fighterTypeOne.value}`; 
-    // console.log('Player1 name: '+ playerOneName);
-    // console.log('Player1 choice: '+ fighterChoice1);
 
     const playerTwoName = `${playerTwo.value}`;
+    // const fighterChoice2 = createFighter(`${fighterTypeTwo.value}`); 
     const fighterChoice2 = `${fighterTypeTwo.value}`; 
-  
 
     displayFighers(fighterChoice1, playerOneName, fighterChoice2, playerTwoName );
     
     // playerOneContainer.innerHTML = '';
     // playerTwoContainer.innerHTML = '';
 
-    // displayPlayerInfo(typeAndPlayerOne, playerOneContainer);
-    // displayPlayerInfo(typeAndPlayerTwo, playerTwoContainer);  
+
 
     form.reset(); 
 });
+
 
 
 
@@ -189,18 +188,21 @@ form.addEventListener('submit', (event) => {
   Get info from class TEST
 **********************************/
 
-const fighter1 = new FighterType('Kunimitsu', 650); 
+// const fighter1 = new FighterType('Kunimitsu', 650, ); 
 
-fighter1.getName();
+// fighter1.getName();
 
 // const kunimitsuAttackList = new Attacklist([{attackname: 'Blizzard combo', attackdamage: 40}]); //Funkar ej att lägga in objext såhär, kolla upp
 // const kunimitsuAttackList = new Attacklist(['Blizzard combo', 40]);
-const kunimitsuAttackList = new Attacklist();
-const kunimitsuAttack1 = new Attack('Blizzard combo', 40); // Detta funkar men behöver bli en array? Som ovan
-kunimitsuAttackList.getAttacks();
+// const kunimitsuAttackList = new Attacklist([{'Blizzard combo', 40}, {'explosive jab' 85}]);
+// const kunimitsuAttackList = new Attacklist([{attackname:'Blizzard combo', attackDamage: 40}, {attackname:'explosive jab', attackDamage:85}]);
+// const kunimitsuAttackList = new Attacklist();
 
-kunimitsuAttack1.getAttackName();
-kunimitsuAttack1.getAttackDamage();
+// const kunimitsuAttack1 = new Attack('Blizzard combo', 40); // Detta funkar men behöver bli en array? Som ovan
+// kunimitsuAttackList.getAttacks();
+
+// kunimitsuAttack1.getAttackName();
+// kunimitsuAttack1.getAttackDamage();
 
 
 // kunimitsuAttackList.setAttack({attackname: 'Blizzard combo', attackdamage: 40});
@@ -216,12 +218,12 @@ kunimitsuAttack1.getAttackDamage();
 
 
 
-console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
-// console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${fighter1.attacklist()}`);
-console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.getAttacks()}` ); //Denna visar bara undefined eller object
+// console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth`);
+// // console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${fighter1.attacklist()}`);
+// // console.log(`${fighter1.getName()} have  ${fighter1.getMaxHealth()} in maxhealth.He/She have the attacks: ${kunimitsuAttackList.getAttacks()}` ); //Denna visar bara undefined eller object
 
-console.log(`${fighter1.getName()} have  these attacks: ${kunimitsuAttack1.getAttackName()} that has the value ${kunimitsuAttack1.getAttackDamage()} ` ); 
+// console.log(`${fighter1.getName()} have  these attacks: ${kunimitsuAttack1.getAttackName()} that has the value ${kunimitsuAttack1.getAttackDamage()} ` ); 
 
 
-// Flytta detta till display eller går det göra en export så det går att hämta i flera functioner/filer
+// // Flytta detta till display eller går det göra en export så det går att hämta i flera functioner/filer
 
