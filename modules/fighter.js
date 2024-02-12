@@ -29,7 +29,7 @@ class Fighter {
         console.log('Game over! Restarting the game...');
     }
   }
-
+  
   hitOrMiss() {
     const random = Math.random();
     return random < 0.5; 

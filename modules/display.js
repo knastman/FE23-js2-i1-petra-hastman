@@ -27,17 +27,16 @@ function createFighter(name) {
   else if (name === "Zangief") {
     return new FighterZangief();
   }
-
   return null;
 }
 
 
-/**************************
+/******************************
     Builds parts of interface
- ***************************
+ ******************************
 
 
-  HEALTH
+  HEALTH PART
  ***************************/  
 
 function createHealthElement(){
@@ -48,13 +47,14 @@ function createHealthElement(){
   const healthBorderDiv = document.createElement('div');
   healthBorderDiv.classList.add('healthborder');
 
+  const healthbarDiv = document.createElement('div');
+  healthbarDiv.id = 'currentHealth';
+  healthbarDiv.classList.add('healthbar');
+  // healthbarDiv.innerText = this.currentHealth;
+
   const healthInfoDiv = document.createElement('div');
   healthInfoDiv.classList.add('healthInfo');
 
-  const healthbarDiv = document.createElement('div');
-  healthbarDiv.id = 'currentHealth';
-  healthBorderDiv.classList.add('healthbar');
-  // healthbarDiv.innerText = this.currentHealth;
 
   const healthspan1 = document.createElement('span');
   const healthspan2 = document.createElement('span');
@@ -65,7 +65,7 @@ function createHealthElement(){
 
   divHealth.append(healthBorderDiv, healthInfoDiv);
   healthBorderDiv.append(healthbarDiv);
-  healthbarDiv.append(healthInfoDiv);
+  // healthbarDiv.append(healthInfoDiv);
   healthInfoDiv.append(healthspan1, healthspan2);
 
   return divHealth;
@@ -74,65 +74,35 @@ function createHealthElement(){
 
 /*******************************
     Builds fighter interface
- *****************************'/
+ *****************************/
 
+export function displayFigher(fighterType, playerName){
+  // const playerCard1 = document.querySelector('#playerCard1'); //Används ej än
 
-export function displayFighers(fighterType1, playerName1, fighterType2, playerName2){
-  const playerCard1 = document.querySelector('#playerCard1');
-  const playerCard2 = document.querySelector('#playerCard2');
-
-  const playerHeader1 = document.querySelector('#playerHeader1');
-  const playerHeader2 = document.querySelector('#playerHeader2');
-
-  const playerNameOne = document.querySelector('#playerNameOne');
-  const playerNameTwo = document.querySelector('#playerNameTwo');
+  const playerHeader1Container = document.querySelector('#playerHeader1');
+  const playerNameOneDiv = document.querySelector('#playerNameOne');
+  const namesPlayerAndFighter = document.createElement('h3');
   
-  const healthElement1 = createHealthElement(); //denna är divHealth som returneras 
-  const fighterChoice1 = createFighter(fighterType1); //hämtar det functionencreateFighter returnerar.
+  const healthElement = createHealthElement(); //DivHealth som returneras 
+  const fighterChoice = createFighter(fighterType); // får returnen m info om val av fighter
+
+  const fighterChoiceName = fighterChoice.getName(); //Hämtar fighternamnet från klassen
+  namesPlayerAndFighter.innerText = `${playerName} as ${fighterChoiceName}`;
   
-  const maxHealthElement = healthElement1.querySelector("#maxHealth");
-  maxHealthElement.innerText = fighterChoice1.getMaxHealth(); //denna hämtar metoden getMaxHealth från klassen fighter
+  const maxHealthElement = healthElement.querySelector("#maxHealth");
+  maxHealthElement.innerText = fighterChoice.getMaxHealth(); //denna hämtar metoden getMaxHealth från klassen fighter
 
-  // healthElement1.querySelector("#currentHealth") = fighterChoice1.get
-  
-  console.log('fighterChoice1');
-  console.log(fighterChoice1);
-
-
-  // const playerHeader2 = document.querySelector('.playerHeader');
-
-  playerHeader1.append(playerNameOne, healthElement1);
-  // playerHeader1.append(playerNameOne, fighterChoice1.displayHealth());
-  // playerHeader1.append(fighterChoice1.displayHealth()); //diplayHealth 
-
-
-  // playerNameOne.append(playerHeader1);
-  // playerNameTwo.append(playerHeader2);
-
+  playerHeader1Container.append(healthElement); //Den andra diven är redan där så behöver ej appendas
+  playerNameOneDiv.append(namesPlayerAndFighter);
 
   const playerName1Namn = document.createElement('h3');
-  // const playerHeader1 = document.createElement('h3');
-  // const playerHeader2 = document.createElement('h3');
 
-  playerName1Namn.innerText = `${playerName1} as ${fighterType1} `;
+  playerName1Namn.innerText = `${playerName} as ${fighterType} `;
   // playerHeader2.innerText = `${playerName2} as ${fighterType2} `;
-
-
-  // const fighter1 = new FighterType('fighterType1'); 
-  // fighter1.getName();
 
   //HUr hämtar jag in objectet och dess info här
   // console.log(`${fighter1.getName()} have ${fighter1.getMaxHealth()} in maxhealth`);
 
-  // console.log('fighterType');
-  // console.log(FighterType);
-
-  // for(const prop in fighterType){
-  //   console.log(prop, fighterType[prop]);  
-  // }
-  // for(const prop in Kunimitsu){
-  //   console.log(prop, Kunimitsu[prop]);  
-  // }
 }
 
 // export {displayPlayerInfo}

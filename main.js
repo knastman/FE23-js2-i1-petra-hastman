@@ -1,5 +1,5 @@
 // import { displayPlayerInfo, displayFigher } from "./modules/display.js";
-import { displayFighers } from "./modules/display.js";
+import { displayFigher } from "./modules/display.js";
 import { Fighter, Attack } from "./modules/fighter.js";
 // import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 // import { FighterType} from "./modules/fighterType.js";
@@ -35,8 +35,6 @@ form.addEventListener('submit', (event) => {
     const fighterTypeOne = document.querySelector('#fighterOne');
     const fighterTypeTwo = document.querySelector('#fighterTwo');
 
-
-
     const playerOneName = `${playerOne.value}`;
     // const fighterChoice1 = createFighter(`${fighterTypeOne.value}`); 
     const fighterChoice1 = `${fighterTypeOne.value}`; 
@@ -45,12 +43,11 @@ form.addEventListener('submit', (event) => {
     // const fighterChoice2 = createFighter(`${fighterTypeTwo.value}`); 
     const fighterChoice2 = `${fighterTypeTwo.value}`; 
 
-    displayFighers(fighterChoice1, playerOneName, fighterChoice2, playerTwoName );
+    displayFigher(fighterChoice1, playerOneName);
+    // displayFigher(fighterChoice2, playerTwoName); //Hämta denna en gång för varje spelare  
     
     // playerOneContainer.innerHTML = '';
     // playerTwoContainer.innerHTML = '';
-
-
 
     form.reset(); 
 });

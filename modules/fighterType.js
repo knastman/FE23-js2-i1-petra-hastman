@@ -17,7 +17,7 @@ class FighterZangief extends Fighter {
 
 class FighterKunimitsu extends Fighter{ 
   constructor(){
-    super('Kunimitsu', 200, 0, 
+    super('Kunimitsu', 370, 0, 
     [
       new Attack('Blizzard combo', 40, 'explosion.png' ),
       new Attack('Explosive jab', 85, 'explosion.png'),
@@ -29,7 +29,7 @@ class FighterKunimitsu extends Fighter{
 }
 
 const fighterKunimitsu = new FighterKunimitsu();
-console.log('fighterKunimitsu');
+console.log('fighterKunimitsu i fightertype');
 console.log(fighterKunimitsu);
 
 
