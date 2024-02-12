@@ -97,7 +97,7 @@
 }
 
 .healthbarCurrent{
-  width:30%;
+  width:30%; /* Bara för att kunna se hur det ser ut */
 }
 
 .healthBorder{
@@ -116,7 +116,7 @@
   gap:20px;
 }
 
-#playerImg {
+.playerImg {
   width:75%;
 }
 #playerImg img{

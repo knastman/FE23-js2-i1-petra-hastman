@@ -40,36 +40,33 @@ function createFighter(name) {
  ***************************/  
 
 function createHealthElement(){
-  // const health = document.querySelector('#health');
   const divHealth = document.createElement('div');
   divHealth.classList.add('health');
 
   const healthBorderDiv = document.createElement('div');
-  healthBorderDiv.classList.add('healthborder');
+  healthBorderDiv.classList.add('healthBorder');
 
   const healthbarDiv = document.createElement('div');
   healthbarDiv.id = 'currentHealth';
   healthbarDiv.classList.add('healthbar');
   // healthbarDiv.innerText = this.currentHealth;
+  healthbarDiv.innerText = '370'; //Detta ska hämtas från metoden när den finns
 
   const healthInfoDiv = document.createElement('div');
   healthInfoDiv.classList.add('healthInfo');
-
 
   const healthspan1 = document.createElement('span');
   const healthspan2 = document.createElement('span');
   healthspan2.id = 'maxHealth';
 
   healthspan1.innerText = 'Health';
-  // healthspan2.innerText = this.#maxHealth; 
+  // healthspan2.innerText = this.#maxHealth; //Innan klassen gjordes om så funkade detta.
 
   divHealth.append(healthBorderDiv, healthInfoDiv);
   healthBorderDiv.append(healthbarDiv);
-  // healthbarDiv.append(healthInfoDiv);
   healthInfoDiv.append(healthspan1, healthspan2);
 
   return divHealth;
-
 }
 
 /*******************************
@@ -78,27 +75,33 @@ function createHealthElement(){
 
 export function displayFigher(fighterType, playerName){
   // const playerCard1 = document.querySelector('#playerCard1'); //Används ej än
+  const fighterChoice = createFighter(fighterType); //Vilken fighter man valt (från funct)
 
-  const playerHeader1Container = document.querySelector('#playerHeader1');
-  const playerNameOneDiv = document.querySelector('#playerNameOne');
+  const playerHeaderContainer = document.querySelector('#playerHeader');
+  const playerNameDiv = document.querySelector('#playerNameOne');
   const namesPlayerAndFighter = document.createElement('h3');
   
-  const healthElement = createHealthElement(); //DivHealth som returneras 
-  const fighterChoice = createFighter(fighterType); // får returnen m info om val av fighter
+  const fighterChoiceName = fighterChoice.getName(); //Hämtar fighternamnet från subklassen Kunumitsu
 
-  const fighterChoiceName = fighterChoice.getName(); //Hämtar fighternamnet från klassen
-  namesPlayerAndFighter.innerText = `${playerName} as ${fighterChoiceName}`;
-  
+  const healthElement = createHealthElement(); //Hela diven class "health" (från funct)
+
   const maxHealthElement = healthElement.querySelector("#maxHealth");
-  maxHealthElement.innerText = fighterChoice.getMaxHealth(); //denna hämtar metoden getMaxHealth från klassen fighter
+  const fighterMaxHealth = fighterChoice.getMaxHealth();//Hämtar metoden från klassen fighter
 
-  playerHeader1Container.append(healthElement); //Den andra diven är redan där så behöver ej appendas
-  playerNameOneDiv.append(namesPlayerAndFighter);
+  namesPlayerAndFighter.innerText = `${playerName} as ${fighterChoiceName}`;
+  maxHealthElement.innerText =  `MAX ${fighterMaxHealth}`; 
+  // maxHealthElement.innerText = fighterChoice.getMaxHealth();
 
-  const playerName1Namn = document.createElement('h3');
-
-  playerName1Namn.innerText = `${playerName} as ${fighterType} `;
+  
   // playerHeader2.innerText = `${playerName2} as ${fighterType2} `;
+
+
+  playerHeaderContainer.append(healthElement); 
+  playerNameDiv.append(namesPlayerAndFighter);
+
+
+
+  
 
   //HUr hämtar jag in objectet och dess info här
   // console.log(`${fighter1.getName()} have ${fighter1.getMaxHealth()} in maxhealth`);
