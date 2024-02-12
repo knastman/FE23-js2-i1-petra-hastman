@@ -9,6 +9,7 @@ class Fighter {
     this.#name = name;
     this.#maxHealth = maxHealth;
     this.#damage = damage;
+    this.#attacks = [];
     this.currentHealth = maxHealth;
     this.#attacks = attacks;
     this.#imgUrl = imgUrl;
@@ -22,13 +23,6 @@ class Fighter {
     return this.#maxHealth;
   }
 
-  applyDamage(damage) {
-    this.currentHealth -= damage;
-    if (this.currentHealth < 0) {
-        this.currentHealth = 0;
-        console.log('Game over! Restarting the game...');
-    }
-  }
   
   hitOrMiss() {
     const random = Math.random();
@@ -36,15 +30,24 @@ class Fighter {
   }
 
   setAttacks(attackObj) {
-    this.attacklist.push(attackObj);
+    this.#attacks.push(attackObj);
   }
 
-  getAttacks() {
+  getAttacks(){
     console.log(this.#attacks);
-    for (const attack of this.attacks ){
-      console.log(`${attackObj.attackName}, ${attackObj.attackDamage}`);
-      // return this.#attacklist;
+    for (const attack of this.#attacks ){
+      console.log(`${attack.attackName}, ${attack.attackDamage}`);
+       //return this.#attacks;
     }  
+    return this.#attacks; 
+  }
+
+  applyDamage(damage) {
+    this.currentHealth -= damage;
+    if (this.currentHealth < 0) {
+      this.currentHealth = 0;
+      console.log('Game over! Restarting the game...');
+    }
   }
 
   // displayHealth() {
@@ -56,25 +59,26 @@ class Fighter {
 
 //Detta är bara lite testning. Jag vill få in attackerna som object på fightern eg
 export class Attack { 
-  #attackName;
-  #attackDamage;
-  #imgUrl;
+  
 
   constructor(attackName, attackDamage, imgUrl){
     // this.fighter = fighter;
-    this.#attackName = attackName;
-    this.#attackDamage = attackDamage;
-    this.#imgUrl = imgUrl;
+    this.attackName = attackName;
+    this.attackDamage = attackDamage;
+    this.imgUrl = imgUrl;
   }
 
   getAttackName(){    
-    return this.#attackName;
+    return this.attackName;
   }
   getAttackDamage(){    
-    return this.#attackDamage;
+    return this.attackDamage;
   }
 
-
+  setAttackDamage(fighter) {
+    fighter.applyDamage(this.attackDamage);
+    console.log(`${this.attackName} applied to ${fighter.getName()}. ${fighter.getName()}'s health: ${fighter.currentHealth}`);
+  }
 }
 
 

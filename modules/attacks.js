@@ -1,114 +1,58 @@
-
 import { FighterZangief, FighterKunimitsu } from "./fighterType.js";
 
 const kunimitsuButton = document.querySelectorAll('.kunimitsuButton');
 const zangiefButton = document.querySelectorAll('.zangiefButton');
 
-// Deklarera här
 const fighterZangief = new FighterZangief();
 const fighterKunimitsu = new FighterKunimitsu(); 
+
 
 
 /*********************************
   Attack types handlers
 **********************************/
 
+kunimitsuButton.forEach(button => {
+  button.addEventListener('click', function() {
+    const attackName = button.getAttribute('data-attack-name');
+    const selectedAttack = fighterKunimitsu.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
+
+    if (selectedAttack) {
+      const damage = selectedAttack.attackDamage;
+      if (fighterZangief.hitOrMiss()) {
+        fighterZangief.applyDamage(damage);
+        console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
+      } else {
+        console.log(`${fighterZangief.getName()} dodges the attack!`);
+      }
+      setTurn(toggleTurn());
+    } else {
+      console.log(`Attack not found: ${attackName}`);
+    }
+  });
+});
 
 zangiefButton.forEach(button => {
   button.addEventListener('click', function() {
-      const attackName = button.getAttribute('data-attack-name');
-      if (attackName === 'air manipulation') {
-          const damage = 40;
-          if (fighterKunimitsu.hitOrMiss()) {
-              fighterKunimitsu.applyDamage(damage);
-              console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
-          }
-      } 
-      else if(attackName === 'focus attack'){
-          const damage = 85;
-          if (fighterKunimitsu.hitOrMiss()) {
-              fighterKunimitsu.applyDamage(damage);
-              console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
-          }
-      }
-      else if(attackName === 'dynamite punch'){
-          const damage = 25;
-          if (fighterKunimitsu.hitOrMiss()) {
-              fighterKunimitsu.applyDamage(damage);
-              console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
-          }
-      }
+    const attackName = button.getAttribute('data-attack-name');
+    const selectedAttack = fighterZangief.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
 
-      else {
-          const damage = 250;
-           if (fighterKunimitsu.hitOrMiss()) {
-              fighterKunimitsu.applyDamage(damage);
-              console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
-          }
-          
-          
+    if (selectedAttack) {
+      const damage = selectedAttack.attackDamage;
+      if (fighterKunimitsu.hitOrMiss()) {
+        fighterKunimitsu.applyDamage(damage);
+        console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
+      } else {
+        console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
       }
       setTurn(toggleTurn());
+    } else {
+      console.log(`Attack not found: ${attackName}`);
+    }
   });
 });
 
-kunimitsuButton.forEach(button => {
-  button.addEventListener('click', function() {
-      const attackName = button.getAttribute('data-attack-name');
-      if (attackName === 'blizzard combo') {
-          const damage = 40;
-          if (fighterZangief.hitOrMiss()) {
-              fighterZangief.applyDamage(damage);
-              console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterZangief.getName()} dodges the attack!`);
-          }
-      }
-      else if (attackName === 'explosive jab') {
-          const damage = 85;
-          if (fighterZangief.hitOrMiss()) {
-              fighterZangief.applyDamage(damage);
-              console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterZangief.getName()} dodges the attack!`);
-          }
-      }
-
-      else if (attackName === 'shuriken throw') {
-          const damage = 85;
-          if (fighterZangief.hitOrMiss()) {
-              fighterZangief.applyDamage(damage);
-              console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterZangief.getName()} dodges the attack!`);
-          }
-      }
-
-      else {
-          const damage = 250;
-          if (fighterZangief.hitOrMiss()) {
-              fighterZangief.applyDamage(damage);
-              console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
-          } else {
-              console.log(`${fighterZangief.getName()} dodges the attack!`);
-          }
-      }
-      setTurn(toggleTurn());
-  });
-});
-
-
-// Inte helt nöjd med placering här, kikar över bättre lösning imorgon 
 let isKunimitsuTurn = true;
-
 function setTurn() {
   if (isKunimitsuTurn) {
       zangiefButton.forEach(button => {
@@ -132,4 +76,4 @@ function toggleTurn() {
   
 }
 
-export{setTurn, toggleTurn}
+export{setTurn, toggleTurn} 

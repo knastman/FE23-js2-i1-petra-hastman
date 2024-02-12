@@ -1,8 +1,15 @@
 import { Fighter, Attack } from "./fighter.js";
 
 class FighterZangief extends Fighter {
-  constructor(name, maxHealth, damage) {
-    super('Zangief', 850, damage);
+  constructor() {
+    super('Zangief', 850, 0, 
+    [
+      new Attack('Air manipulation', 40, 'dust.png' ),
+      new Attack('Focus attack', 85, 'focus.png'),
+      new Attack('Dynamite punch', 85, 'punch.png'),
+      new Attack('Power kick', 85, 'battery.png'),
+    ],
+    'Zangief.webp');  
      
   }
 }

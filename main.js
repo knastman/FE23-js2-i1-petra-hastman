@@ -20,6 +20,9 @@ const playersContainer = document.querySelector('#playersContainer');
 // const fighterZangief = new FighterType('Zangief', 520);
 // const fighterKunimitsu = new FighterType('Kunimitsu', 430); 
 
+
+
+
 /*********************************
  Get values from form
 **********************************/
