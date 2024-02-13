@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/3a14b5ad60.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Tekken</title>
+    <link rel="stylesheet" href="./css/mainstyles.css">
+    <link rel="stylesheet" href="./css/fighters.css">
+    <script src="./main.js" type="module"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="formContainer" >
+        <form>
+          <h2>Choose your fighter!</h2>
+          <div>
+            <label for="playerOne">Player 1</label>
+            <input type="text" name="playerOne" id="playerOne">
+            <select name="fighterOne" id="fighterOne">
+              <option value="" disabled selected>Choose fighter</option>
+              <option value="Zangief">Zangief</option>
+              <option value="Kunimitsu">Kunimitsu</option>
+              <!-- <option value="fighterTypeThree">Fighter type  3</option> -->            
+            </select>
+          </div>
+          
+          <div>
+            <label for="playerTwo">Player 2</label>
+            <input type="text" name="playerTwo" id="playerTwo">
+            <select name="fighterTwo" id="fighterTwo">
+              <option value="" disabled selected>Choose fighter</option>
+              <option value="Zangief">Zangief</option>
+              <option value="Kunimitsu">Kunimitsu</option>
+              <!-- <option value="fighterTypeThree">Yoshimitsu</option> -->
+            </select>
+          </div>
+          <button class="formButton">Fight</button>
+        </form>
+      </div>
+
+      <div id="startContainer">
+        
+        <section class="playerCard1" style="box-shadow: none;">
+          <div class="playerHeader" id="playerHeader">
+            <div id="playerNameOne"><h3>Play as Kunimitsu?</h3></div>
+          </div>
+          
+          <div class="playerInfo">
+            <div class="actionContainerStart">
+              <h3>Kunimitsu's attacks</h3>
+              <div>  
+                <img src="./img/icons/hurricane.png" alt="">Blizzard Combo
+              </div>
+              <div>
+                <img src="./img/icons/explosion.png" alt="">Explosive jab
+              </div>            
+              <div>
+                <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
+              </div>
+              <div>
+                <img src="./img/icons/flash.png" alt="">Twisted Limbs
+              </div>
+            </div>
+            <div class="playerImg">
+              <img src="./img/Kunimitsu.png" alt="Kunimitsu">
+            </div>    
+          </div>
+          <!-- <div class="victoryText"><q>Prepare</q></div>   -->
+        </section>
+          
+        <section class="playerCard2" style="box-shadow: none;">
+          <div class="playerHeader" id="playerHeader2">
+            <div id="playerNameTwo"><h3>Or Zangief?</div>
+          </div>  
+          <div class="playerInfo">
+            <div class="playerImg">
+              <img src="./img/Zangief.webp" alt="Zangief">
+            </div>
+
+            <div class="actionContainerStart">
+              <h3>Zangief's attacks</h3>
+          
+              <div>
+                <img src="./img/icons/dust.png" alt="">Air manipulation
+              </div>
+              <div>
+                <img src="./img/icons/focus.png" alt="">Focus attack
+              </div> 
+              <div>
+                <img src="./img/icons/punch.png" alt="">Dynamite punch
+              </div>  
+              <div>
+                <img src="./img/icons/battery.png" alt="">Power kick
+              </div>  
+            </div>
+          </div>
+        </section>
+      </div> 
+
+    </div>    
+  </body>
+</html>
+    

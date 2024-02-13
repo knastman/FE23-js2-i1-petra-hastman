@@ -1,27 +1,17 @@
 // import { displayPlayerInfo, displayFigher } from "./modules/display.js";
-import { displayFigher } from "./modules/display.js";
+import { displayFigher, fighterChoice } from "./modules/display.js";
 import { Fighter, Attack } from "./modules/fighter.js";
 // import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 // import { FighterType} from "./modules/fighterType.js";
-import {setTurn, toggleTurn} from "./modules/attacks.js";
-import { FighterKunimitsu, FighterZangief } from "./modules/fighterType.js";
+// import {setTurn, toggleTurn} from "./modules/attacks.js";
+// import { FighterKunimitsu, FighterZangief } from "./modules/fighterType.js";
 
 const form = document.querySelector('form');
 const formContainer = document.querySelector('#formContainer');
 const playersContainer = document.querySelector('#playersContainer');
-
-// const kunimitsuButton = document.querySelectorAll('.kunimitsuButton');
-// const zangiefButton = document.querySelectorAll('.zangiefButton');
-
-// Deklarera här
-// const fighterZangief = new FighterZangief();
-// const fighterKunimitsu = new FighterKunimitsu(); 
-
-// const fighterZangief = new FighterType('Zangief', 520);
-// const fighterKunimitsu = new FighterType('Kunimitsu', 430); 
-
-
-
+const startContainer = document.querySelector('#startContainer');
+// const newGameButton = document.querySelector('#newGameButton');
+// console.log(newGameButton);
 
 /*********************************
  Get values from form
@@ -30,8 +20,11 @@ const playersContainer = document.querySelector('#playersContainer');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
+    // newGameButton.classList.add("hide");
     formContainer.classList.add("hide");
+    startContainer.classList.add("hide");
     playersContainer.classList.remove("hide");
+   
 
     const playerOne = document.querySelector('#playerOne'); 
     const playerTwo = document.querySelector('#playerTwo');
@@ -46,16 +39,23 @@ form.addEventListener('submit', (event) => {
     // const fighterChoice2 = createFighter(`${fighterTypeTwo.value}`); 
     const fighterChoice2 = `${fighterTypeTwo.value}`; 
 
-    displayFigher(fighterChoice1, playerOneName);
-    // displayFigher(fighterChoice2, playerTwoName); //Hämta denna en gång för varje spelare  
+    displayFigher(fighterChoice1, playerOneName, '1');
+    // fighterChoice(fighterChoice1);
+    displayFigher(fighterChoice2, playerTwoName, '2'); //Hämta denna en gång för varje spelare  
     
-    // playerOneContainer.innerHTML = '';
-    // playerTwoContainer.innerHTML = '';
-
+    
     form.reset(); 
 });
 
+/*********************************
+  New Game 
+**********************************/
 
+
+// newGameButton.addEventListener('click', (event) => {
+//   console.log('New Game');
+
+// });
 
 
 //NEDAN ÄR FLYTTAD TILL EN EGEN MODUL
@@ -227,3 +227,15 @@ form.addEventListener('submit', (event) => {
 
 // // Flytta detta till display eller går det göra en export så det går att hämta i flera functioner/filer
 
+
+
+/*********/
+// const kunimitsuButton = document.querySelectorAll('.kunimitsuButton');
+// const zangiefButton = document.querySelectorAll('.zangiefButton');
+
+// Deklarera här
+// const fighterZangief = new FighterZangief();
+// const fighterKunimitsu = new FighterKunimitsu(); 
+
+// const fighterZangief = new FighterType('Zangief', 520);
+// const fighterKunimitsu = new FighterType('Kunimitsu', 430); 

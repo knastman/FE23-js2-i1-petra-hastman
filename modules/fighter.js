@@ -1,18 +1,20 @@
 class Fighter {
   #name;
   #maxHealth;
+  #currentHealth 
+  #imgUrl;
   #damage;
   #attacks;
-  #imgUrl;
-  
-  constructor(name, maxHealth, damage, attacks, currentHealth, imgUrl) {
+
+  constructor(name, maxHealth, currentHealth, imgUrl,  attacks, damage) {
     this.#name = name;
     this.#maxHealth = maxHealth;
-    this.#damage = damage;
-    this.#attacks = [];
-    this.currentHealth = maxHealth;
-    this.#attacks = attacks;
+    // this.currentHealth = maxHealth;
+    this.#currentHealth = maxHealth;
     this.#imgUrl = imgUrl;
+    this.#damage = damage;
+    // this.#attacks = [];
+    this.#attacks = attacks;
   }
 
   getName() {
@@ -21,6 +23,9 @@ class Fighter {
 
   getMaxHealth() {
     return this.#maxHealth;
+  }
+  getImgUrl() {
+    return this.#imgUrl;
   }
 
   
@@ -34,13 +39,29 @@ class Fighter {
   }
 
   getAttacks(){
-    console.log(this.#attacks);
+    // let attackIndex = 0;
+    // let attackNamTest = '';
     for (const attack of this.#attacks ){
+      // attackIndex++;
+      // attackNamTest = `${attack[attackIndex].attackName}`;
+      // console.log(attackNamTest);
       console.log(`${attack.attackName}, ${attack.attackDamage}`);
        //return this.#attacks;
     }  
     return this.#attacks; 
   }
+  // getAttackName(){
+  //   console.log('this.#attacks');
+  //   console.log(this.#attacks);
+  //   let attackName = ''
+  //   for (const attack of this.#attacks ){
+  //     attackName = attack.attackName;
+  //     console.log('attackName via variabel');
+  //     console.log(attackName);
+  //     // return attackName;
+  //   }  
+  //   // return attackName;
+  // }
 
   applyDamage(damage) {
     this.currentHealth -= damage;
@@ -56,11 +77,8 @@ class Fighter {
 }
 
 
-
-//Detta är bara lite testning. Jag vill få in attackerna som object på fightern eg
 export class Attack { 
   
-
   constructor(attackName, attackDamage, imgUrl){
     // this.fighter = fighter;
     this.attackName = attackName;
@@ -81,7 +99,7 @@ export class Attack {
   }
 }
 
-
+// Tidigare lösning men ovan är den som används?
 // export class Attacklist { 
 //   constructor(listName){
 //     this.listName = listName;
@@ -96,6 +114,7 @@ export class Attack {
 //   getAttacks(){    
 //     for (const attack of this.attacks ){ 
 //       console.log(`${attack.attackname}, ${attack.attackdamage}`);
+//       console.log('Från attacklist');
 //     }
 //     return this.attacklist;
 //     // return this.list;

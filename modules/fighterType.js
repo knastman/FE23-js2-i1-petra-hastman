@@ -2,39 +2,34 @@ import { Fighter, Attack } from "./fighter.js";
 
 class FighterZangief extends Fighter {
   constructor() {
-    super('Zangief', 850, 0, 
+    super('Zangief', 850, 0, 'Zangief.webp',
     [
       new Attack('Air manipulation', 40, 'dust.png' ),
       new Attack('Focus attack', 85, 'focus.png'),
       new Attack('Dynamite punch', 85, 'punch.png'),
       new Attack('Power kick', 85, 'battery.png'),
-    ],
-    'Zangief.webp');  
-     
+    ]);    
   }
 }
 
-// class FighterKunimitsu extends Fighter{
-//   constructor(name, maxHealth, damage){
-//     super('Kunimitsu', 650, damage);      
-//   }
-// }
+const fighterZangief = new FighterZangief();
+console.log('fighterZangief i fightertype');
+console.log(fighterZangief);
+
 
 
 
 class FighterKunimitsu extends Fighter{ 
   constructor(){
-    super('Kunimitsu', 370, 0, 
+    super('Kunimitsu', 370, 0, 'Kunimitsu.png',
     [
       new Attack('Blizzard combo', 40, 'explosion.png' ),
       new Attack('Explosive jab', 85, 'explosion.png'),
       new Attack('Shuriken throw', 85, 'shuriken2.png'),
       new Attack('Twisted limbs', 85, 'flash.png'),
-    ],
-    'Kunimitsu.png');      
+    ]);      
   }
 }
-
 const fighterKunimitsu = new FighterKunimitsu();
 console.log('fighterKunimitsu i fightertype');
 console.log(fighterKunimitsu);
@@ -42,7 +37,19 @@ console.log(fighterKunimitsu);
 
 
 
+//GAMMALT
+// class FighterKunimitsu extends Fighter{
+//   constructor(name, maxHealth, damage){
+//     super('Kunimitsu', 650, damage);      
+//   }
+// }
 
+
+// export class FighterType extends Fighter{
+//   constructor(name, maxHealth, attacklist){
+//     super(name, maxHealth, attacklist); 
+//   }
+// }
 
 
 // class DodgeFighter extends Fighter {
@@ -68,21 +75,9 @@ console.log(fighterKunimitsu);
 
 
 
-
-
-
-
-
-
-// export class FighterType extends Fighter{
-//   constructor(name, maxHealth, attacklist){
-//     super(name, maxHealth, attacklist); 
-//   }
-// }
-
-// export class FighterTim extends Fighter{
+// export class FighterExempel extends Fighter{
 //   constructor(){
-//     const name = "Tim";
+//     const name = "Exempelnamn";
 //     const health = 299;
 //     const attacks = [1, 2, 3];
 
@@ -90,13 +85,10 @@ console.log(fighterKunimitsu);
 //   }
 // }
 
-
 // const fighters = [
-//   new FighterTim(),
+//   new FighterExempel(),
 
 // ];
-
-
 
 
 export {FighterZangief, FighterKunimitsu};

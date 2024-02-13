@@ -6,8 +6,8 @@
 
 html {
   font-size: 14px; 
-  font-family:'Mulish', sans-serif;
-  font-family: 'Quicksand', sans-serif;
+  /* font-family:'Mulish', sans-serif;
+  font-family: 'Quicksand', sans-serif; */
   font-family: 'Assistant', sans-serif;
 
 }
@@ -41,6 +41,10 @@ h1{
 }
 h2{
   text-align: center;
+}
+
+h3{
+  font-size: 1.5rem;
 }
 
 .wrapper{

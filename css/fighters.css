@@ -18,11 +18,15 @@
   margin-bottom:20px;
 } */
 
+/******* START ******/
 
 
 
 
-#playersContainer{
+
+
+/*******FIGHT *********/
+#playersContainer, #startContainer{
   /* display: flex;
   /* justify-content: space-around; */
   /* gap:20px;
@@ -40,15 +44,8 @@
   "newGame newGame";  */
 }
 
-
-
-#playersContainer h3{
-  font-size: 1.5rem;
-  /* margin-top:0.7rem; */
-}
-
-.playerCard1, .playerCard2 {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.playerCard1, .playerCard2, .playerCard {
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   padding:10px;
 }
@@ -116,6 +113,10 @@
   gap:20px;
 }
 
+.actioncontainerRight{
+  flex-direction: row-reverse;
+}
+
 .playerImg {
   width:75%;
 }
@@ -146,7 +147,10 @@
   width:125px;
   width:23%;
 }
-.actionContainer h3{
+
+
+
+.actionContainer h3, .actionContainerStart h3{
   width:100%;
 }
 
@@ -161,11 +165,34 @@
   width:93%;
 }
 
-.actionContainer img{
+.actionContainer img, .actionContainerStart img{
   max-width:55px;
   height:auto;
   filter: drop-shadow(0 0 0.2rem rgb(192, 192, 192));
 }
+
+.actionContainerStart{
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+}
+.actionContainerStart div{
+  margin:15px 5px 25px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:93%;
+  /* box-shadow: none; */
+  background-color:transparent;
+}
+
+.actionContainerStart img{
+  max-width:50px;
+  height:auto;
+  filter: drop-shadow(0 0 0.2rem rgb(192, 192, 192));
+}
+
+
+
 
 /* .actionImg{
   margin-left: 20px;
@@ -295,6 +322,12 @@
   font-size: 1.2rem;
   font-style: italic;
   color: #000;
+}
+.startText{
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #000;
+  text-align: center;
 }
 
 #newGame{

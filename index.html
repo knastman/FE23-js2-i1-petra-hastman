@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/3a14b5ad60.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/3a14b5ad60.js" crossorigin="anonymous"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -45,21 +45,84 @@
         </form>
       </div>
 
-      <div id="playersContainer">
+
+      <div id="startContainer">
         
-        <section class="playerCard1">
+        <section class="playerCard1" style="box-shadow: none;">
           <div class="playerHeader" id="playerHeader">
-            <div id="playerNameOne"></div> <!-- Behöver nog creatas istället för hämtas och ha klass istället för id - pga skapas likadant för båda spelarna-->
-            <!-- <div class="health">
-              <div class="healthBorder">
-                <div class="healthbar healthbarCurrent" id="player1Health">208</div>
-              </div>
-                <div class="healthInfo"><span>Health</span> <span>MAX 430</span></div>
-            </div>        -->
+            <div id="playerNameOne"><h3>Play as Kunimitsu?<br />The Thief of the Manji Clan</h3></div>
           </div>
           
           <div class="playerInfo">
-            <div class="actionContainer">
+            <div class="actionContainerStart">
+              <h3>Kunimitsu's attacks</h3>
+              <div>  
+                <img src="./img/icons/hurricane.png" alt="">Blizzard Combo
+              </div>
+              <div>
+                <img src="./img/icons/explosion.png" alt="">Explosive jab
+              </div>            
+              <div>
+                <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
+              </div>
+              <div>
+                <img src="./img/icons/flash.png" alt="">Twisted Limbs
+              </div>
+            </div>
+            <div class="playerImg">
+              <img src="./img/Kunimitsu-sitting.png" alt="Kunimitsu" width="330">
+              <!-- <img src="./img/Kunimitsu.png" alt="Kunimitsu"> -->
+            </div>    
+          </div>
+          <div class="startText"><q>All right, then... time to get to work.</q></div>  
+          <div class="startText"><q>Interesting weapon you have there...</q></div>  
+        </section>
+          
+        <section class="playerCard2" style="box-shadow: none;">
+          <div class="playerHeader" id="playerHeader2">
+            <div id="playerNameTwo"><h3>Or Zangief?<br /> The Pro Wrestler from Russia</div>
+          </div>  
+          <div class="playerInfo">
+            <div class="playerImg">
+              <img src="./img/Zangief.webp" alt="Zangief">
+            </div>
+
+            <div class="actionContainerStart">
+              <h3>Zangief's attacks</h3>
+          
+              <div>
+                <img src="./img/icons/dust.png" alt="">Air manipulation
+              </div>
+              <div>
+                <img src="./img/icons/focus.png" alt="">Focus attack
+              </div> 
+              <div>
+                <img src="./img/icons/punch.png" alt="">Dynamite punch
+              </div>  
+              <div>
+                <img src="./img/icons/battery.png" alt="">Power kick
+              </div>  
+            </div>
+          </div>
+          <div class="startText"><q>“My iron body is invincible! So beware!”</q></div>  
+          <div class="startText"><q>Roaring muscles and deadly spin– that is the Red Cyclone!</q></div>  
+        </section>
+      </div> 
+
+
+
+
+      <div id="playersContainer">
+        
+        <!-- <section class="playerCard" id="1"> -->
+          <!-- <div class="playerHeader" id="playerHeader">
+            <div><h3 class="playerNames"></h3></div>  
+
+          </div>-->
+          
+          <!-- <div class="playerInfo"> -->
+
+            <!-- <div class="actionContainer">
               <h3>Actions</h3>
               <div>
                 <button class="kunimitsuButton" data-attack-name="blizzard combo" data-attack-damage="40" id="blizzard">
@@ -81,34 +144,28 @@
                   <img src="./img/icons/flash.png" alt="">Twisted Limbs
                 </button>
               </div>
-            </div>
-            <div class="playerImg">
+            </div> -->
+            
+            <!-- <div class="playerImg">
               <img src="./img/Kunimitsu.png" alt="Kunimitsu">
-            </div>    
-          </div>
-          <div class="victoryText">
-          </div>  
-        </section>
+            </div>     -->
+          <!-- </div> -->
+          <!-- <div class="victoryText">
+          </div>   -->
+        <!-- </section> -->
           
-        <section class="playerCard2">
-          <div class="playerHeader" id="playerHeader2">
-            <div id="playerNameTwo">
 
-            </div>
-            <div class="health">
-              <div class="healthBorder">
-                <div class="healthbar healthbarFull" id="player1Health">430</div>
-              </div>  
-              <div class="healthInfo">
-                <span>Health</span> <span>MAX 420</span>
-              </div>
-            </div>
+        <!-- <section class="playerCard" id="2"></section> -->
+
+        <!-- <section class="playerCard" id="2">
+          <div class="playerHeader" id="playerHeader2">
+            <div><h3 class="playerNames"></h3></div>
+
           </div>  
           <div class="playerInfo">
             <div class="playerImg">
               <img src="./img/Zangief.webp" alt="Zangief">
             </div>
-
             <div class="actionContainer">
               <h3>Actions</h3>
               <div>
@@ -136,10 +193,30 @@
               </div>  
             </div>
           </div>
-        </section>
+        </section> -->
+
+        <div class="newGame hide"><button id="#newGameButton">New Game</button></div>
       </div> 
 
     </div>    
   </body>
 </html>
     
+
+
+            <!-- <div class="health">
+              <div class="healthBorder">
+                <div class="healthbar healthbarCurrent" id="player1Health">208</div>
+              </div>
+                <div class="healthInfo"><span>Health</span> <span>MAX 430</span></div>
+            </div>        -->
+
+
+            <!-- <div class="health">
+              <div class="healthBorder">
+                <div class="healthbar healthbarFull" id="player1Health">430</div>
+              </div>  
+              <div class="healthInfo">
+                <span>Health</span> <span>MAX 420</span>
+              </div>
+            </div> -->
