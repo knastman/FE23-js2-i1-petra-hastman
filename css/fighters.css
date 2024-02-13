@@ -199,7 +199,7 @@
 } */
 
 
-.kunimitsuButton, .zangiefButton{
+.kunimitsuButton, .zangiefButton,.Kunimitsubutton, .Zangiefbutton, .fighterbutton{
   background-color: transparent;
   background-color: #fff;
   padding:5px 10px;
@@ -211,7 +211,7 @@
 
 }
 
-.kunimitsuButton:hover, .zangiefButton:hover{
+.KunimitsuButton:hover, .ZangiefButton:hover{
   border:none;
   opacity: 75;
   background-color:rgb(127, 145, 145);

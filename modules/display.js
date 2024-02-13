@@ -96,6 +96,7 @@ function createHealthElement(){
     Builds fighter interface
  *****************************/
 
+
 export function displayFigher(fighterType, playerName, fighterContainerIndex){
 
   const fighterChoice = createFighter(fighterType); //Vilken fighter man valt (från funct) - innehåller all info om fightertypens klass
@@ -132,49 +133,106 @@ export function displayFigher(fighterType, playerName, fighterContainerIndex){
   }
   
   /******* Image ******/
+  // const fighterImgUrl = fighterChoice.getImgUrl();
+  // const imgContainer = createFighterImgElement();
+  // imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl}  alt= ${fighterChoiceName} />`;
+
   const fighterImgUrl = fighterChoice.getImgUrl();
-  const imgContainer = createFighterImgElement();
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('playerImg');
   imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl}  alt= ${fighterChoiceName} />`;
+
+
+/****************TESTAR ANDREAS*******************************/
+// const selectedAttack = fighterChoice.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
+// console.log(selectedAttack);
+
+
+
+
+
+// console.log('clara loggar', fighterChoice.getAttacks())
+const actionContainer =  document.createElement('div');
+actionContainer.classList.add('actionContainer');
+
+
+for(const attack of fighterChoice.getAttacks()){
+  // const actionElement =  document.createElement('h5');
+  const actionButton =  document.createElement('button');
+  const imgContainer = document.createElement('div');
+  const attackName = document.createElement('span');
+  const attackImgElement =  document.createElement('img');
+  actionButton.classList.add(`${fighterChoiceName}button`);
+
+  /******* ButtonImage ******/
+  const fighterImgUrl = attack.attackImgUrl;
+  imgContainer.classList.add('attackImg');
+  // imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl}  alt= ${attack.attackName} />`;
+  attackImgElement.src = `${imgBaseUrl}/icons/${fighterImgUrl}`;
+  attackName.innerText = attack.attackName;
+
+
+
+  // const attackImg = attack.attackImgUrl;
+  // console.log(attackImg);
+  // imgContainer.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
+  // attackImgElement.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
+
+  // console.log('clara loggar', attack.getAttackName());
+  // console.log(`${attack.attackName}, ${attack.attackDamage}`);
+  // actionElement.innerText = `${attack.attackName}, ${attack.attackDamage}`;
+  // actionContainer.append(actionElement); 
+  actionContainer.append(imgContainer); 
+  imgContainer.append(actionButton); 
+  actionButton.append(attackImgElement,attackName); 
+  
+
+}
+
+
 
 
   /******* ActionContainer ******/
   //------------------Hur hämtar man ut varje action för sig?--------------
  
-  // const actionContainer = createActionElements();
-  // const attacks = fighterChoice.getAttacks(); //Listar attacknamn och attackdamage
+  // const actionContainer = createActionElements();//från FUNCTION
+  // const attacks = fighterChoice.getAttacks(); //Listar attacknamn och attackdamage 
+
   // const attackName = fighterChoice.getAttackName(); //Funkar ej
   // console.log('attackName');
   // console.log(attackName);
 
-  const actionContainer =  document.createElement('div');
-  actionContainer.classList.add('actionContainer');
-  const fighterAttacks = fighterChoice.getAttacks();
-  console.log(fighterAttacks);
+
+  // actionContainer.classList.add('actionContainer');
+  // const fighterAttacks = fighterChoice.getAttacks();
+  // console.log(fighterAttacks);
   // actionContainer.innerText = fighterAttacks; //Detta blir bara [object], [object]
 
 //  Tillfälligt
-  actionContainer.innerHTML = ` 
-  <h3>Actions</h3>
-  <div>
-    <button class="kunimitsuButton" data-attack-name="blizzard combo" data-attack-damage="40" id="blizzard">
-      <img src="./img/icons/hurricane.png" alt="">Blizzard Combo
-    </button>
-  </div>
-  <div>
-    <button class="kunimitsuButton" data-attack-name="explosive jab" data-attack-damage="25" id="explosiveJab">
-      <img src="./img/icons/explosion.png" alt="">Explosive jab
-    </button>
-  </div>            
-  <div>
-    <button class="kunimitsuButton" data-attack-name="shuriken throw" data-attack-damage="85" id="shurikenThrow">
-      <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
-    </button>
-  </div>
-  <div>
-    <button class="kunimitsuButton" data-attack-name="twisted limbs" data-attack-damage="205" id="twistedLimbs">
-      <img src="./img/icons/flash.png" alt="">Twisted Limbs
-    </button>
-  </div>`;
+  // actionContainer.innerHTML = ` 
+  // <h3>Actions</h3>
+  // <div>
+  //   <button class="kunimitsuButton" data-attack-name="blizzard combo" data-attack-damage="40" id="blizzard">
+  //     <img src="./img/icons/hurricane.png" alt="">Blizzard Combo
+  //   </button>
+  // </div>
+  // <div>
+  //   <button class="kunimitsuButton" data-attack-name="explosive jab" data-attack-damage="25" id="explosiveJab">
+  //     <img src="./img/icons/explosion.png" alt="">Explosive jab
+  //   </button>
+  // </div>            
+  // <div>
+  //   <button class="kunimitsuButton" data-attack-name="shuriken throw" data-attack-damage="85" id="shurikenThrow">
+  //     <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
+  //   </button>
+  // </div>
+  // <div>
+  //   <button class="kunimitsuButton" data-attack-name="twisted limbs" data-attack-damage="205" id="twistedLimbs">
+  //     <img src="./img/icons/flash.png" alt="">Twisted Limbs
+  //   </button>
+  // </div>`;
+
+ 
 
  
   /************** All appends ******/
@@ -182,6 +240,7 @@ export function displayFigher(fighterType, playerName, fighterContainerIndex){
   playerCard.append(playerHeaderContainer, fighterImgAndActionsContainer);
   playerHeaderContainer.append(namesPlayerAndFighter, healthElement);
   fighterImgAndActionsContainer.append(actionContainer, imgContainer); 
+
 
 }
 

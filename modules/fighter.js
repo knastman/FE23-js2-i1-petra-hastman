@@ -50,18 +50,18 @@ class Fighter {
     }  
     return this.#attacks; 
   }
-  // getAttackName(){
-  //   console.log('this.#attacks');
-  //   console.log(this.#attacks);
-  //   let attackName = ''
-  //   for (const attack of this.#attacks ){
-  //     attackName = attack.attackName;
-  //     console.log('attackName via variabel');
-  //     console.log(attackName);
-  //     // return attackName;
-  //   }  
-  //   // return attackName;
-  // }
+  getAttackName(){
+    console.log('this.#attacks');
+    console.log(this.#attacks);
+    let attackName = ''
+    for (const attack of this.#attacks ){
+      attackName = attack.attackName;
+      console.log('attackName via variabel');
+      console.log(attackName);
+      // return attackName;
+    }  
+    // return attackName;
+  }
 
   applyDamage(damage) {
     this.currentHealth -= damage;
@@ -79,11 +79,11 @@ class Fighter {
 
 export class Attack { 
   
-  constructor(attackName, attackDamage, imgUrl){
+  constructor(attackName, attackDamage, attackImgUrl){
     // this.fighter = fighter;
     this.attackName = attackName;
     this.attackDamage = attackDamage;
-    this.imgUrl = imgUrl;
+    this.attackImgUrl = attackImgUrl;
   }
 
   getAttackName(){    
@@ -91,6 +91,9 @@ export class Attack {
   }
   getAttackDamage(){    
     return this.attackDamage;
+  }
+  getAttackImgUrl(){    
+    return this.attackImgUrl;
   }
 
   setAttackDamage(fighter) {

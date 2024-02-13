@@ -23,9 +23,9 @@ class FighterKunimitsu extends Fighter{
   constructor(){
     super('Kunimitsu', 370, 0, 'Kunimitsu.png',
     [
-      new Attack('Blizzard combo', 40, 'explosion.png' ),
+      new Attack('Blizzard combo', 40, 'hurricane.png' ),
       new Attack('Explosive jab', 85, 'explosion.png'),
-      new Attack('Shuriken throw', 85, 'shuriken2.png'),
+      new Attack('Shuriken throw', 85, 'shuriken.png'),
       new Attack('Twisted limbs', 85, 'flash.png'),
     ]);      
   }
