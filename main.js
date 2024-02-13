@@ -3,16 +3,17 @@ import { displayFigher, fighterChoice } from "./modules/display.js";
 import { Fighter, Attack } from "./modules/fighter.js";
 // import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 // import { FighterType} from "./modules/fighterType.js";
-// import {setTurn, toggleTurn} from "./modules/attacks.js";
-// import { FighterKunimitsu, FighterZangief } from "./modules/fighterType.js";
+ import {createAttackBtns} from "./modules/attacks.js";
+ import { FighterKunimitsu, FighterZangief } from "./modules/fighterType.js";
 
 const form = document.querySelector('form');
 const formContainer = document.querySelector('#formContainer');
 const playersContainer = document.querySelector('#playersContainer');
 const startContainer = document.querySelector('#startContainer');
-// const newGameButton = document.querySelector('#newGameButton');
+const newGameButton = document.querySelector('#newGameButton');
 // console.log(newGameButton);
 
+// let p1 p2;
 /*********************************
  Get values from form
 **********************************/
@@ -20,7 +21,7 @@ const startContainer = document.querySelector('#startContainer');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    // newGameButton.classList.add("hide");
+   newGameButton.classList.remove("hide");
     formContainer.classList.add("hide");
     startContainer.classList.add("hide");
     playersContainer.classList.remove("hide");
@@ -39,7 +40,15 @@ form.addEventListener('submit', (event) => {
     // const fighterChoice2 = createFighter(`${fighterTypeTwo.value}`); 
     const fighterChoice2 = `${fighterTypeTwo.value}`; 
 
+    let playerONEE = new FighterKunimitsu();
+    let  playerTWO = new FighterZangief();
+     
+
+    // displayFighter(p1)
+    let player1 = fighterChoice1
+    let player2 = fighterChoice2
     displayFigher(fighterChoice1, playerOneName, '1');
+    createAttackBtns(playerONEE, playerTWO);
     // fighterChoice(fighterChoice1);
     displayFigher(fighterChoice2, playerTwoName, '2'); //Hämta denna en gång för varje spelare  
     
@@ -52,10 +61,13 @@ form.addEventListener('submit', (event) => {
 **********************************/
 
 
-// newGameButton.addEventListener('click', (event) => {
-//   console.log('New Game');
+ newGameButton.addEventListener('click', () => {
+   console.log('New Game');
+   startContainer.classList.remove("hide");
+   formContainer.classList.remove("hide");
+   playersContainer.classList.add("hide");
 
-// });
+ });
 
 
 //NEDAN ÄR FLYTTAD TILL EN EGEN MODUL

@@ -1,23 +1,16 @@
-import { FighterZangief, FighterKunimitsu } from "./fighterType.js";
-
-const kunimitsuButton = document.querySelectorAll('.kunimitsuButton');
-const zangiefButton = document.querySelectorAll('.zangiefButton');
-
-
-function createAttackBtns(playerONEE, playerTWO){
-  kunimitsuButton.forEach(button => {
+kunimitsuButton.forEach(button => {
     button.addEventListener('click', function() {
       const attackName = button.getAttribute('data-attack-name');
-      const selectedAttack = playerTWO.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
+      const selectedAttack = fighterKunimitsu.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
       if (selectedAttack) {
         const damage = selectedAttack.attackDamage;
-        if (playerONEE.hitOrMiss()) {
-          playerONEE.applyDamage(damage);
-          console.log(`${playerONEE.getName()} takes ${damage} damage!`);
+        if (fighterZangief.hitOrMiss()) {
+          fighterZangief.applyDamage(damage);
+          console.log(`${fighterZangief.getName()} takes ${damage} damage!`);
         } else {
-          console.log(`${playerONEE.getName()} dodges the attack!`);
+          console.log(`${fighterZangief.getName()} dodges the attack!`);
         }
-        //setTurn(toggleTurn());
+        setTurn(toggleTurn());
       } else {
         console.log(`Attack not found: ${attackName}`);
       }
@@ -27,24 +20,24 @@ function createAttackBtns(playerONEE, playerTWO){
   zangiefButton.forEach(button => {
     button.addEventListener('click', function() {
       const attackName = button.getAttribute('data-attack-name');
-      const selectedAttack = playerONEE.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
+      const selectedAttack = fighterZangief.getAttacks().find(attack => attack.attackName.toLowerCase() === attackName.toLowerCase());
   
       if (selectedAttack) {
         const damage = selectedAttack.attackDamage;
-        if (playerTWO.hitOrMiss()) {
-          playerTWO.applyDamage(damage);
-          console.log(`${playerTWO.getName()} takes ${damage} damage!`);
+        if (fighterKunimitsu.hitOrMiss()) {
+          fighterKunimitsu.applyDamage(damage);
+          console.log(`${fighterKunimitsu.getName()} takes ${damage} damage!`);
         } else {
-          console.log(`${playerTWO.getName()} dodges the attack!`);
+          console.log(`${fighterKunimitsu.getName()} dodges the attack!`);
         }
-        //setTurn(toggleTurn());
+        setTurn(toggleTurn());
       } else {
         console.log(`Attack not found: ${attackName}`);
       }
     });
   });
   
- /*  let isKunimitsuTurn = true;
+  let isKunimitsuTurn = true;
   function setTurn() {
     if (isKunimitsuTurn) {
         zangiefButton.forEach(button => {
@@ -66,16 +59,4 @@ function createAttackBtns(playerONEE, playerTWO){
   function toggleTurn() {
     isKunimitsuTurn = !isKunimitsuTurn;
     
-  } */
-
-}
-
-
-
-  
-  
-
-
-
-
-export{createAttackBtns} 
+  }
