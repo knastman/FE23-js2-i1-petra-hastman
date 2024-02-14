@@ -11,6 +11,7 @@ const formContainer = document.querySelector('#formContainer');
 const playersContainer = document.querySelector('#playersContainer');
 const startContainer = document.querySelector('#startContainer');
 const newGameButton = document.querySelector('#newGameButton');
+const newGameBtnDiv = document.querySelector('.newGameBtnDiv');
 
 // let player1 player2;
 
@@ -20,7 +21,7 @@ const newGameButton = document.querySelector('#newGameButton');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-   newGameButton.classList.remove("hide");
+   newGameBtnDiv.classList.remove("hide");
     formContainer.classList.add("hide");
     startContainer.classList.add("hide");
     playersContainer.classList.remove("hide");
@@ -59,6 +60,7 @@ form.addEventListener('submit', (event) => {
    startContainer.classList.remove("hide");
    formContainer.classList.remove("hide");
    playersContainer.classList.add("hide");
+   newGameBtnDiv.classList.add("hide");
 
  });
 
