@@ -257,6 +257,7 @@
     inset 2px 2px 10px #00000080;
     background-color: #18191f; */
     /* margin: 0 40px; */
+    
     animation: animate 3s linear infinite;
     text-shadow: 0 0 50px #ff0000, 0 0 100px #ff0048, 0 0 150px #ff0004,
       0 0 200px #ff0019;
@@ -288,12 +289,14 @@
   opacity: 0.30;
 }
 
-
+.textAlign{
+  text-align: center;
+}
 .ko {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+   transform: translate(130%, 20%); 
+ margin-right: 470px;
   font-size: 10rem;
   text-align: center;
 }
@@ -322,8 +325,8 @@
   margin-bottom: 1rem;
   margin-right: 14px;
 }
+
 #newGameButton{
-  
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -346,23 +349,13 @@
 
 }
 
-
-
  #newGameButton:hover {
-  
-  
   background-color: #1db954;
 }
 
- #newGameButton:hover {
-  transform: translateY(-1px);
-}
 
- #newGameButton:active {
-  background-color: #c85000;
-  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
-  transform: translateY(0);
-}
+
+
 
 
 

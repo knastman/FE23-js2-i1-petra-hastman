@@ -56,11 +56,11 @@ form.addEventListener('submit', (event) => {
 
 
  newGameButton.addEventListener('click', () => {
-   console.log('New Game');
    startContainer.classList.remove("hide");
    formContainer.classList.remove("hide");
    playersContainer.classList.add("hide");
    newGameBtnDiv.classList.add("hide");
+   
 
  });
 

@@ -1,3 +1,4 @@
+import {displayFigher, displayKO} from "./display.js"
 class Fighter {
   #name;
   #maxHealth;
@@ -44,22 +45,39 @@ class Fighter {
   // getCurrentHealth() {
   //   return this.#currentHealth;
   // }
+  resetGame() {
+    // Återställ spelvärden till ursprungligt tillstånd
+    this.#currentHealth = this.#maxHealth;
+    // Lägg till andra återställningar beroende på ditt spel
 
+    console.log('Game reset!');
+  } 
+
+  
+  
   currentHealth(damage) {
-    this.currentHealth -= damage;
-    console.log('this.currentHealth');
-    console.log(this.currentHealth);
+    
+    this.#currentHealth -= damage;
+    if (this.#currentHealth <= 0) {
+      this.#currentHealth = 0;
+      console.log(`${this.#name} is defeated! Game over!`);
+      displayKO();
+      this.resetGame();
+      
+    }
     return this.#currentHealth;
   }
-
-  applyDamage(damage) {
+  getCurrentHealth() {
+    return this.#currentHealth;
+  }
+  /* applyDamage(damage) {
     this.currentHealth -= damage;
 
     if (this.currentHealth < 0) {
-      this.currentHealth = 0;
+      this.currentHealth <= 0;
       console.log('Game over! Restarting the game...');
     }
-  }
+  } */
 
   // displayHealth() {
 

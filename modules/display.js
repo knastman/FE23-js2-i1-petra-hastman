@@ -34,8 +34,11 @@ let fighterChoice = '';
 let playerName = '';
 
 export async function displayFigher(fighterType, playerName, fighterContainerIndex){
+  
 
   fighterChoice = createFighter(fighterType); 
+   const KOElement = displayKO(fighterChoice)
+   
 
   const playerCard = document.createElement('section'); 
   playerCard.classList.add('playerCard');
@@ -71,7 +74,7 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
   playerCard.append(playerHeaderContainer, fighterImgAndActionsContainer);
   playerHeaderContainer.append(namesPlayerAndFighter, healthElement);
   // fighterImgAndActionsContainer.append(actionContainer, imgContainer); 
-  fighterImgAndActionsContainer.append(actionContainer, imgElement); 
+  fighterImgAndActionsContainer.append(actionContainer, imgElement, KOElement); 
 
 
 }
@@ -106,6 +109,7 @@ for(const attack of fighterChoice.getAttacks()){
   // console.log('clara loggar', attack.getAttackName());
   // console.log(`${attack.attackName}, ${attack.attackDamage}`);
 
+  
   actionContainer.append(imgContainer); 
   imgContainer.append(actionButton); 
   actionButton.append(attackImgElement,attackName); 
@@ -118,10 +122,26 @@ function createFighterImg(fighterchoice){
 
   const fighterImgUrl = fighterChoice.getImgUrl();
   const imgContainer = document.createElement('div');
+  const KOElement = document.createElement('div');
+  KOElement.innerText="KO";
+  KOElement.classList.add('ko');
   imgContainer.classList.add('playerImg');
   imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl} />`;
 
-  return imgContainer;
+  
+  return imgContainer ;
+}
+
+
+export function displayKO(fighterChoiceName){
+  const KOElement = document.createElement('div');
+  KOElement.innerText="KO";
+  KOElement.classList.add('ko');
+  KOElement.classList.add('fighterLost');
+  KOElement.classList.add('container__icon-wrapper');
+  KOElement.classList.add('hide');
+
+  return KOElement;
 }
 
 

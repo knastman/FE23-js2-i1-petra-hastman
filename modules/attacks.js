@@ -43,6 +43,21 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   let fighter1CurrentHealth = fighterChoice1.getMaxHealth();
   let fighter2CurrentHealth = fighterChoice2.getMaxHealth();
 
+  function resetGame() {
+    fighterChoice1.resetGame();
+    fighter1CurrentHealth = fighterChoice1.getMaxHealth();
+    fighterChoice2.resetGame();
+    fighter2CurrentHealth = fighterChoice2.getMaxHealth();
+  }
+
+  const playersContainer = document.querySelector('.health')
+ 
+  function displayFighterMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.innerText = message;
+    playersContainer.appendChild(messageElement);
+  }
+
   // kunimitsuButton.forEach(button => {
   attackButtons1.forEach(button => {
     button.addEventListener('click', function() {
@@ -60,14 +75,21 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
       console.log(damage);
 
       if (fighterChoice2.hitOrMiss()) {
-        // fighterChoice2.applyDamage(damage);
+        fighterChoice2.currentHealth(damage);
         console.log(`${fighterChoice2.getName()}/${player2} takes ${damage} damage!`);
-        fighter2CurrentHealth -= damage;
-        console.log(`${player2} have${fighter2CurrentHealth} health left`);
+        fighter2CurrentHealth = fighterChoice2.getCurrentHealth(); // Uppdatera nuvarande hälsa
+        console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+       
 
       } else {
-        console.log(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
+        displayFighterMessage(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
         console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+      }
+
+      //Nollställer spel om fighter 2 blivit knockad. Uppdaterar nuvarande hälsa(som börjar på maxhälsans värde)
+      if (fighter2CurrentHealth <= 0) {
+        console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+        resetGame();
       }
       setTurn(toggleTurn());
 
@@ -86,14 +108,19 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
         const damage = selectedAttack.attackDamage;
 
         if (fighterChoice1.hitOrMiss()) {
-          fighterChoice1.applyDamage(damage);
-          console.log(`${fighterChoice1.getName()}/${player1}  takes ${damage} damage!`);
-          fighter1CurrentHealth -= damage;
-          console.log(`${player1} have${fighter1CurrentHealth} health left`);
-
-        } else {
-          console.log(`${fighterChoice1.getName()}/${player1} dodges the attack!`);
+          fighterChoice1.currentHealth(damage);
+          console.log(`${fighterChoice1.getName()}/${player1} takes ${damage} damage!`);
+          fighter1CurrentHealth = fighterChoice1.getCurrentHealth(); // Uppdatera nuvarande hälsa
           console.log(`${player1} have ${fighter1CurrentHealth} health left`);
+          
+        } else {
+          displayFighterMessage(`${fighterChoice1.getName()}/${player1} dodges the attack!`);
+          console.log(`${player1} have ${fighter1CurrentHealth} health left`);
+        }
+        //Nollställer spel om fighter 1 blivit knockad. Uppdaterar nuvarande hälsa(som börjar på maxhälsans värde)
+        if (fighter1CurrentHealth <= 0) {
+          console.log(`${player1} have ${fighter1CurrentHealth} health left`);
+          resetGame();
         }
         setTurn(toggleTurn());
       } else {
