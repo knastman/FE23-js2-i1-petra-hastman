@@ -4,17 +4,17 @@ import { displayFigher, createFighter } from "./display.js";
 const fighterChoice1 = '';
 const fighterChoice2 = '';
 
-// export function createAttackBtns(playerONEE, playerTWO){
+
 export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   const fighterChoice1 = createFighter(fighterType1);
   const fighterChoice2 = createFighter(fighterType2);
+  const playersContainer = document.querySelector('.health');//För att lägga in message 
+  console.log(playersContainer);
+
   // console.log(fighterType1); //Endast namnen
   // console.log(fighterType2);
   // console.log(fighterChoice1); //Klasserna
   // console.log(fighterChoice2);
-
-  console.log(player1);
-  console.log(player2);
 
   let attackButtons1 ='';
   let attackButtons2 ='';
@@ -43,6 +43,7 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   let fighter1CurrentHealth = fighterChoice1.getMaxHealth();
   let fighter2CurrentHealth = fighterChoice2.getMaxHealth();
 
+  //Behövs denna? Om ja, behöver den ligga inne i samam funktion
   function resetGame() {
     fighterChoice1.resetGame();
     fighter1CurrentHealth = fighterChoice1.getMaxHealth();
@@ -50,13 +51,9 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
     fighter2CurrentHealth = fighterChoice2.getMaxHealth();
   }
 
-  const playersContainer = document.querySelector('.health')
+
  
-  function displayFighterMessage(message) {
-    const messageElement = document.createElement('div');
-    messageElement.innerText = message;
-    playersContainer.appendChild(messageElement);
-  }
+
 
   // kunimitsuButton.forEach(button => {
   attackButtons1.forEach(button => {
@@ -79,16 +76,20 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
         console.log(`${fighterChoice2.getName()}/${player2} takes ${damage} damage!`);
         fighter2CurrentHealth = fighterChoice2.getCurrentHealth(); // Uppdatera nuvarande hälsa
         console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+        displayFighterMessage(`${player2} have ${fighter2CurrentHealth} health left`);
        
 
       } else {
         displayFighterMessage(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
+        console.log(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
         console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+        displayFighterMessage(`${player2} have ${fighter2CurrentHealth} health left`);
       }
 
       //Nollställer spel om fighter 2 blivit knockad. Uppdaterar nuvarande hälsa(som börjar på maxhälsans värde)
       if (fighter2CurrentHealth <= 0) {
         console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+        console.log(`${player1} WON!`);
         resetGame();
       }
       setTurn(toggleTurn());
@@ -115,11 +116,14 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
           
         } else {
           displayFighterMessage(`${fighterChoice1.getName()}/${player1} dodges the attack!`);
+          console.log(`${fighterChoice1.getName()}/${player1} dodges the attack!`);
           console.log(`${player1} have ${fighter1CurrentHealth} health left`);
         }
+
         //Nollställer spel om fighter 1 blivit knockad. Uppdaterar nuvarande hälsa(som börjar på maxhälsans värde)
         if (fighter1CurrentHealth <= 0) {
-          console.log(`${player1} have ${fighter1CurrentHealth} health left`);
+          console.log(`${player1} have ${fighter1CurrentHealth} health left. ${player2} `);
+          console.log(`${player2} WON!`);
           resetGame();
         }
         setTurn(toggleTurn());
@@ -154,20 +158,25 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   
   function toggleTurn() {
     isPlayer1Turn = !isPlayer1Turn;
-    
+
   } 
 }
 
 
+function displayFighterMessage(message) {
+  const messageElement = document.createElement('div');
+  messageElement.innerText = message;
+  playersContainer.append(messageElement);
+}
 
  /****************** Display Healthbar and maxhealth *******************/ 
 
  export function createHealthElement(fighterChoice){
-  console.log('fighterChoice i healtfunc');
-  console.log(fighterChoice);
+  // console.log('fighterChoice i healtfunc');
+  // console.log(fighterChoice);
 
   let fighterCurrentHealth = fighterChoice.getMaxHealth();
-  console.log('fighterCurrentHealth i healtfun');
+  console.log('fighterCurrentHealth i healtfunc');
   console.log(fighterCurrentHealth);
 
   const divHealth = document.createElement('div');
@@ -197,10 +206,8 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   healthBorderDiv.append(healthbarDiv);
   healthInfoDiv.append(healthspan1, healthspan2);
 
-
   // const maxHealthElement = healthElement.querySelector("#maxHealth");
   const fighterMaxHealth = fighterChoice.getMaxHealth();//FRÅN CLASSEN 
-  // const fighterMaxHealth = 'fighterChoice.getMaxHealth()';//FRÅN CLASSEN 
   healthspan2.innerText =  `MAX ${fighterMaxHealth}`; //FRÅN CLASSEN 
 
   return divHealth;

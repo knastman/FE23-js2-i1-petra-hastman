@@ -12,6 +12,7 @@ const playersContainer = document.querySelector('#playersContainer');
 const startContainer = document.querySelector('#startContainer');
 const newGameButton = document.querySelector('#newGameButton');
 const newGameBtnDiv = document.querySelector('.newGameBtnDiv');
+console.log(newGameBtnDiv);
 
 // let player1 player2;
 
@@ -21,7 +22,7 @@ const newGameBtnDiv = document.querySelector('.newGameBtnDiv');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-   newGameBtnDiv.classList.remove("hide");
+    // newGameBtnDiv.classList.remove("hide"); // Detta måste sättas på annat ställe när spelet är slut
     formContainer.classList.add("hide");
     startContainer.classList.add("hide");
     playersContainer.classList.remove("hide");

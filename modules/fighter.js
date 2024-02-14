@@ -56,8 +56,8 @@ class Fighter {
   
   
   currentHealth(damage) {
-    
     this.#currentHealth -= damage;
+    console.log('Current health i klassen');
     if (this.#currentHealth <= 0) {
       this.#currentHealth = 0;
       console.log(`${this.#name} is defeated! Game over!`);
