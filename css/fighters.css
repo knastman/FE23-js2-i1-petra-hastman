@@ -22,9 +22,6 @@
 
 
 
-
-
-
 /*******FIGHT *********/
 #playersContainer, #startContainer{
   /* display: flex;
@@ -120,10 +117,10 @@
 .playerImg {
   width:75%;
 }
-#playerImg img{
+.playerImg img{
   /* height:450px; */
   /* width:450px; */
-  
+
   filter: drop-shadow(0 0 0.5rem rgb(174, 174, 174));
   margin:10px;
 }
@@ -171,11 +168,10 @@
   filter: drop-shadow(0 0 0.2rem rgb(192, 192, 192));
 }
 
-.actionContainerStart{
-  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
-}
+
 .actionContainerStart div{
   margin:15px 5px 25px 5px;
+  padding:10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -190,13 +186,6 @@
   height:auto;
   filter: drop-shadow(0 0 0.2rem rgb(192, 192, 192));
 }
-
-
-
-
-/* .actionImg{
-  margin-left: 20px;
-} */
 
 
 .kunimitsuButton, .zangiefButton,.Kunimitsubutton, .Zangiefbutton, .fighterbutton{
@@ -285,9 +274,6 @@
     }
   }
 
-
-
-
 #fightOver .healthbarCurrent2{
   /* background-color: rgb(161, 5, 5); */
   background-color: rgb(161, 5, 5, 0.093);
@@ -335,7 +321,6 @@
 
 }
 
-
 .newGame {
   /* background-color: aqua; */
   justify-self: center;
@@ -345,28 +330,10 @@
   /* width:100%; */
 
 }
+
 .newGame button {
   padding:5px 8px;
 }
 
 
-.neon-button {
-  font-size: 1rem;
 
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0.5em 1em;
-  margin: 2rem;
-  border-radius: 0.25em;
-  position: relative;
-}
-
-
-
-.neon-button__2 {
-  color: rgb(127, 255, 0);
-  border: rgb(127, 255, 0) 0.125em solid;
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em --clr-two;
-  box-shadow: inset 0 0 0.5em 0 var(--clr-two), 0 0 0.5em 0 var(--clr-two);
-}

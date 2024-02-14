@@ -17,8 +17,6 @@ class FighterZangief extends Fighter {
 // console.log(fighterZangief);
 
 
-
-
 class FighterKunimitsu extends Fighter{ 
   constructor(){
     super('Kunimitsu', 470, 470,'Kunimitsu.png',
@@ -33,6 +31,12 @@ class FighterKunimitsu extends Fighter{
 // const fighterKunimitsu = new FighterKunimitsu();
 // console.log('fighterKunimitsu i fightertype');
 // console.log(fighterKunimitsu);
+
+
+
+
+
+
 
 
 

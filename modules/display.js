@@ -26,19 +26,16 @@ export function createFighter(name) {
 }
 
 
+/**********************************
+  Builds fighter interface
+*****************************/
 
-
-
- /**********************************
-    Builds fighter interface
- *****************************/
-
+let fighterChoice = '';
+let playerName = '';
 
 export async function displayFigher(fighterType, playerName, fighterContainerIndex){
 
-  const fighterChoice = createFighter(fighterType); //Vilken fighter man valt (från funct) - innehåller all info om fightertypens klass
-  // console.log(fighterChoice);
-  // console.log(fighterContainerIndex);
+  fighterChoice = createFighter(fighterType); 
 
   const playerCard = document.createElement('section'); 
   playerCard.classList.add('playerCard');
@@ -56,76 +53,81 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
 
   /******* Fighter Health ******/
   const healthElement = createHealthElement(fighterChoice); //Hela diven class "health" (från funct)
-  // const maxHealthElement = healthElement.querySelector("#maxHealth");
-  // const fighterMaxHealth = fighterChoice.getMaxHealth();//FRÅN CLASSEN 
-  // maxHealthElement.innerText =  `MAX ${fighterMaxHealth}`; //FRÅN CLASSEN 
-  // maxHealthElement.innerText = fighterChoice.getMaxHealth();
 
 
+  /******* Action & Img Container ******/
   const fighterImgAndActionsContainer = document.createElement('div');
   fighterImgAndActionsContainer.classList.add('playerInfo');
+
   if (fighterContainerIndex == 2) {
     fighterImgAndActionsContainer.classList.add('actioncontainerRight');
   }
-  
-  /******* Image ******/
-  // const fighterImgUrl = fighterChoice.getImgUrl();
-  // const imgContainer = createFighterImgElement();
-  // imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl}  alt= ${fighterChoiceName} />`;
-
-  const fighterImgUrl = fighterChoice.getImgUrl();
-  const imgContainer = document.createElement('div');
-  imgContainer.classList.add('playerImg');
-  imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl}  alt= ${fighterChoiceName} />`;
-
-
-   /******* ActionContainer ******/
-  const actionContainer =  document.createElement('div');
-  actionContainer.classList.add('actionContainer');
-
-  for(const attack of fighterChoice.getAttacks()){
-    // const actionElement =  document.createElement('h5');
-    const actionButton =  document.createElement('button');
-    const imgContainer = document.createElement('div');
-    const attackName = document.createElement('span');
-    const attackImgElement =  document.createElement('img');
-    actionButton.classList.add(`${fighterChoiceName}button`);
-    actionButton.setAttribute("data-attack-name", `${attack.attackName}`); 
-    actionButton.setAttribute("id", `${attack.attackName}`); 
-    actionButton.setAttribute("data-attack-damage", `${attack.attackDamage}`); 
-    attackName.innerText = attack.attackName;
-
-    /******* ButtonImage ******/
-    const fighterImgUrl = attack.attackImgUrl;
-    attackImgElement.src = `${imgBaseUrl}/icons/${fighterImgUrl}`;
-    // imgContainer.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
-    // console.log('clara loggar', attack.getAttackName());
-    // console.log(`${attack.attackName}, ${attack.attackDamage}`);
-
-    actionContainer.append(imgContainer); 
-    imgContainer.append(actionButton); 
-    actionButton.append(attackImgElement,attackName); 
-
-  }
+  const actionContainer = createActionButtons(fighterChoice);
+  const imgElement = createFighterImg(fighterChoice);
 
  
   /************** All appends ******/
   playersContainer.append(playerCard);
   playerCard.append(playerHeaderContainer, fighterImgAndActionsContainer);
   playerHeaderContainer.append(namesPlayerAndFighter, healthElement);
-  fighterImgAndActionsContainer.append(actionContainer, imgContainer); 
+  // fighterImgAndActionsContainer.append(actionContainer, imgContainer); 
+  fighterImgAndActionsContainer.append(actionContainer, imgElement); 
 
 
 }
 
-
-
 /******************************
-    Builds parts of interface
- ******************************
+  Builds parts of interface
+******************************/
+
+function createActionButtons(fighterchoice){
+
+const fighterChoiceName = fighterChoice.getName(); 
+
+const actionContainer =  document.createElement('div');
+actionContainer.classList.add('actionContainer');
+
+for(const attack of fighterChoice.getAttacks()){
+  // const actionElement =  document.createElement('h5');
+  const actionButton =  document.createElement('button');
+  const imgContainer = document.createElement('div');
+  const attackName = document.createElement('span');
+  const attackImgElement =  document.createElement('img');
+  actionButton.classList.add(`${fighterChoiceName}button`);
+  actionButton.setAttribute("data-attack-name", `${attack.attackName}`); 
+  actionButton.setAttribute("id", `${attack.attackName}`); 
+  actionButton.setAttribute("data-attack-damage", `${attack.attackDamage}`); 
+  attackName.innerText = attack.attackName;
+
+  /******* ButtonImage ******/
+  const fighterImgUrl = attack.attackImgUrl;
+  attackImgElement.src = `${imgBaseUrl}/icons/${fighterImgUrl}`;
+  // imgContainer.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
+  // console.log('clara loggar', attack.getAttackName());
+  // console.log(`${attack.attackName}, ${attack.attackDamage}`);
+
+  actionContainer.append(imgContainer); 
+  imgContainer.append(actionButton); 
+  actionButton.append(attackImgElement,attackName); 
+
+}
+return actionContainer;
+}
+
+function createFighterImg(fighterchoice){
+
+  const fighterImgUrl = fighterChoice.getImgUrl();
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('playerImg');
+  imgContainer.innerHTML = `<img src=${imgBaseUrl}${fighterImgUrl} />`;
+
+  return imgContainer;
+}
 
 
- /****************** Display Healthbar and maxhealth *******************/ 
+/****************** Display Healthbar and maxhealth *******************/ 
+
+//JUST NU I ATTACKS
 
 //  function createHealthElement(){
 //   const divHealth = document.createElement('div');
@@ -156,24 +158,9 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
 //   return divHealth;
 // }
 
-/****************** Display fighterImg *******************/ 
-
-  //Troligen onödig om det inte går att hämta info från classen 
- function createFighterImgElement(){
-  const imgContainer = document.createElement('div');
-  imgContainer.classList.add('playerImg');
-  // const fighterImg = document.createElement('img');
-  // imgContainer.append(fighterImg);
-
-  return imgContainer;
- }
 
 
- /****************** Display Actions *******************/  
 
- function createActionContainer (){
-  console.log('Creates actioncontainer and actions');
- }
 
 
 
@@ -193,9 +180,7 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
 
 
 /********************* GAMMALT OCH TESTER OSV *************/
-
-
-  // const playerCard = document.createElement('section');
+ 
   // playerCard.setAttribute('id', fighterContainerIndex); //olika id på sections
 
 
@@ -283,3 +268,33 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
   //   </button>
   // </div>`;
 
+  // const maxHealthElement = healthElement.querySelector("#maxHealth");
+  // const fighterMaxHealth = fighterChoice.getMaxHealth();//FRÅN CLASSEN 
+  // maxHealthElement.innerText =  `MAX ${fighterMaxHealth}`; //FRÅN CLASSEN 
+  // maxHealthElement.innerText = fighterChoice.getMaxHealth();
+
+
+    // for(const attack of fighterChoice.getAttacks()){
+  //   // const actionElement =  document.createElement('h5');
+  //   const actionButton =  document.createElement('button');
+  //   const imgContainer = document.createElement('div');
+  //   const attackName = document.createElement('span');
+  //   const attackImgElement =  document.createElement('img');
+  //   actionButton.classList.add(`${fighterChoiceName}button`);
+  //   actionButton.setAttribute("data-attack-name", `${attack.attackName}`); 
+  //   actionButton.setAttribute("id", `${attack.attackName}`); 
+  //   actionButton.setAttribute("data-attack-damage", `${attack.attackDamage}`); 
+  //   attackName.innerText = attack.attackName;
+
+  //   /******* ButtonImage ******/
+  //   const fighterImgUrl = attack.attackImgUrl;
+  //   attackImgElement.src = `${imgBaseUrl}/icons/${fighterImgUrl}`;
+  //   // imgContainer.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
+  //   // console.log('clara loggar', attack.getAttackName());
+  //   // console.log(`${attack.attackName}, ${attack.attackDamage}`);
+
+  //   actionContainer.append(imgContainer); 
+  //   imgContainer.append(actionButton); 
+  //   actionButton.append(attackImgElement,attackName); 
+
+  // }

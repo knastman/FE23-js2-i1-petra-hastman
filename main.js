@@ -12,14 +12,11 @@ const playersContainer = document.querySelector('#playersContainer');
 const startContainer = document.querySelector('#startContainer');
 const newGameButton = document.querySelector('#newGameButton');
 
-
 // let player1 player2;
-
 
 /*********************************
  Get values from form
 **********************************/
-//Lägg till att de måste fylla i  både namn och fighter
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -64,16 +61,6 @@ form.addEventListener('submit', (event) => {
    playersContainer.classList.add("hide");
 
  });
-
-
-
-    // let playerONEE = new FighterKunimitsu();
-    // let  playerTWO = new FighterZangief();
-     
-    // displayFighter(p1)
-    // let player1 = fighterChoice1
-    // let player2 = fighterChoice2
-
 
 
 //NEDAN ÄR FLYTTAD TILL EN EGEN MODUL

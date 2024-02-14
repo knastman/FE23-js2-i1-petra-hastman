@@ -1,29 +1,8 @@
 import { FighterZangief, FighterKunimitsu } from "./fighterType.js";
 import { displayFigher, createFighter } from "./display.js";
 
-// const kunimitsuButton = document.querySelectorAll('.Kunimitsubutton');
-// const zangiefButton = document.querySelectorAll('.Zangiefbutton');
-// const buttons = document.querySelectorAll('button');
-
-// console.log(kunimitsuButton);
-// console.log(zangiefButton);
-
-
 const fighterChoice1 = '';
 const fighterChoice2 = '';
-
-// export function createFighter1(fighterType1){
-//   const fighterChoice1 = createFighter(fighterType1);
-//   console.log('fighterChoice1 i createfighter1');
-//   console.log(fighterChoice1);
-//   return fighterChoice1;
-// }
-
-// export function createFighter2(fighterType2){
-//   const fighterChoice2 = createFighter(fighterType2);
-//   return fighterChoice2;
-// }
-
 
 // export function createAttackBtns(playerONEE, playerTWO){
 export function createAttackBtns(fighterType1, fighterType2, player1, player2){
@@ -64,7 +43,6 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   let fighter1CurrentHealth = fighterChoice1.getMaxHealth();
   let fighter2CurrentHealth = fighterChoice2.getMaxHealth();
 
-
   // kunimitsuButton.forEach(button => {
   attackButtons1.forEach(button => {
     button.addEventListener('click', function() {
@@ -74,26 +52,28 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
       console.log('selectedAttack');
       console.log(selectedAttack);
       
-
       // if (selectedAttack) {
-        const damage = selectedAttack.attackDamage;
-        console.log('damage');
-        console.log(damage);
+      const damage = selectedAttack.attackDamage;
+      // const attackDamage = selectedAttack.getAttackDamage;
+      // const attackDamage = fighterChoice.attackDamage(); //funkar ej
+      console.log('damage');
+      console.log(damage);
 
-        if (fighterChoice2.hitOrMiss()) {
-          // fighterChoice2.applyDamage(damage);
-          console.log(`${fighterChoice2.getName()}/${player2} takes ${damage} damage!`);
-          fighter2CurrentHealth -= damage;
-          console.log(`${player2} have${fighter2CurrentHealth} health left`);
+      if (fighterChoice2.hitOrMiss()) {
+        // fighterChoice2.applyDamage(damage);
+        console.log(`${fighterChoice2.getName()}/${player2} takes ${damage} damage!`);
+        fighter2CurrentHealth -= damage;
+        console.log(`${player2} have${fighter2CurrentHealth} health left`);
 
-        } else {
-          console.log(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
-          console.log(`${player2} have${fighter2CurrentHealth} health left`);
-        }
-        setTurn(toggleTurn());
-      // } else {
-      //   console.log(`Attack not found: ${attackName}`);
-      // }
+      } else {
+        console.log(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
+        console.log(`${player2} have ${fighter2CurrentHealth} health left`);
+      }
+      setTurn(toggleTurn());
+
+    // } else {
+    //   console.log(`Attack not found: ${attackName}`);
+    // }
     });
   });
 
@@ -104,8 +84,6 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
   
       if (selectedAttack) {
         const damage = selectedAttack.attackDamage;
-        console.log('damage');
-        console.log(damage); 
 
         if (fighterChoice1.hitOrMiss()) {
           fighterChoice1.applyDamage(damage);
@@ -115,13 +93,14 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
 
         } else {
           console.log(`${fighterChoice1.getName()}/${player1} dodges the attack!`);
-          console.log(`${player1} have${fighter1CurrentHealth} health left`);
+          console.log(`${player1} have ${fighter1CurrentHealth} health left`);
         }
         setTurn(toggleTurn());
       } else {
         console.log(`Attack not found: ${attackName}`);
       }
     });
+    
   });
   
   // let isKunimitsuTurn = true;
@@ -151,8 +130,6 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
     
   } 
 }
-
-
 
 
 
@@ -303,3 +280,18 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
         // const attackDamage = button.getAttribute('data-attack-damage');
       // console.log('attackDamage');
       // console.log(attackDamage);
+
+
+
+
+      // export function createFighter1(fighterType1){
+//   const fighterChoice1 = createFighter(fighterType1);
+//   console.log('fighterChoice1 i createfighter1');
+//   console.log(fighterChoice1);
+//   return fighterChoice1;
+// }
+
+// export function createFighter2(fighterType2){
+//   const fighterChoice2 = createFighter(fighterType2);
+//   return fighterChoice2;
+// }

@@ -45,12 +45,12 @@ class Fighter {
   //   return this.#currentHealth;
   // }
 
-  // currentHealth(damage) {
-  //   this.currentHealth -= damage;
-  //   console.log('this.currentHealth');
-  //   console.log(this.currentHealth);
-  //   return this.#currentHealth;
-  // }
+  currentHealth(damage) {
+    this.currentHealth -= damage;
+    console.log('this.currentHealth');
+    console.log(this.currentHealth);
+    return this.#currentHealth;
+  }
 
   applyDamage(damage) {
     this.currentHealth -= damage;
@@ -112,9 +112,6 @@ export class Attack {
 //     // return this.list;
 //   }
 // }
-
-
-
 
 
 
