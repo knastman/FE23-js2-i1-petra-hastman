@@ -211,7 +211,7 @@
 
 }
 
-.KunimitsuButton:hover, .ZangiefButton:hover{
+.Kunimitsubutton:hover, .Zangiefbutton:hover{
   border:none;
   opacity: 75;
   background-color:rgb(127, 145, 145);

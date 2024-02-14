@@ -1,5 +1,5 @@
 // import { displayPlayerInfo, displayFigher } from "./modules/display.js";
-import { displayFigher, fighterChoice } from "./modules/display.js";
+import { displayFigher, createFighter } from "./modules/display.js";
 import { Fighter, Attack } from "./modules/fighter.js";
 // import { FighterZangief, FighterKunimitsu } from "./modules/fighterType.js";
 // import { FighterType} from "./modules/fighterType.js";
@@ -11,9 +11,11 @@ const formContainer = document.querySelector('#formContainer');
 const playersContainer = document.querySelector('#playersContainer');
 const startContainer = document.querySelector('#startContainer');
 const newGameButton = document.querySelector('#newGameButton');
-// console.log(newGameButton);
 
-// let p1 p2;
+
+// let player1 player2;
+
+
 /*********************************
  Get values from form
 **********************************/
@@ -26,32 +28,26 @@ form.addEventListener('submit', (event) => {
     startContainer.classList.add("hide");
     playersContainer.classList.remove("hide");
    
-
     const playerOne = document.querySelector('#playerOne'); 
     const playerTwo = document.querySelector('#playerTwo');
     const fighterTypeOne = document.querySelector('#fighterOne');
     const fighterTypeTwo = document.querySelector('#fighterTwo');
 
     const playerOneName = `${playerOne.value}`;
-    // const fighterChoice1 = createFighter(`${fighterTypeOne.value}`); 
     const fighterChoice1 = `${fighterTypeOne.value}`; 
+    // const fighterChoice1 = createFighter(`${fighterTypeOne.value}`); 
 
     const playerTwoName = `${playerTwo.value}`;
-    // const fighterChoice2 = createFighter(`${fighterTypeTwo.value}`); 
     const fighterChoice2 = `${fighterTypeTwo.value}`; 
+     // const fighterChoice2 = createFighter(`${fighterTypeTwo.value}`);
 
-    let playerONEE = new FighterKunimitsu();
-    let  playerTWO = new FighterZangief();
-     
-
-    // displayFighter(p1)
-    let player1 = fighterChoice1
-    let player2 = fighterChoice2
+ // fighterChoice(fighterChoice1);
     displayFigher(fighterChoice1, playerOneName, '1');
-    createAttackBtns(playerONEE, playerTWO);
-    // fighterChoice(fighterChoice1);
-    displayFigher(fighterChoice2, playerTwoName, '2'); //Hämta denna en gång för varje spelare  
-    
+    displayFigher(fighterChoice2, playerTwoName, '2'); 
+    createAttackBtns(fighterChoice1, fighterChoice2, playerOneName, playerTwoName);
+    // createFighter1(fighterChoice1);
+    // createFighter1(fighterChoice2);
+  
     
     form.reset(); 
 });
@@ -68,6 +64,16 @@ form.addEventListener('submit', (event) => {
    playersContainer.classList.add("hide");
 
  });
+
+
+
+    // let playerONEE = new FighterKunimitsu();
+    // let  playerTWO = new FighterZangief();
+     
+    // displayFighter(p1)
+    // let player1 = fighterChoice1
+    // let player2 = fighterChoice2
+
 
 
 //NEDAN ÄR FLYTTAD TILL EN EGEN MODUL

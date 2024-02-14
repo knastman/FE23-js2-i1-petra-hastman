@@ -3,16 +3,16 @@ class Fighter {
   #maxHealth;
   #currentHealth 
   #imgUrl;
-  #damage;
+  // #damage;
   #attacks;
 
-  constructor(name, maxHealth, currentHealth, imgUrl,  attacks, damage) {
+  constructor(name, maxHealth, currentHealth, imgUrl,  attacks) {
     this.#name = name;
     this.#maxHealth = maxHealth;
     // this.currentHealth = maxHealth;
-    this.#currentHealth = maxHealth;
+    this.#currentHealth = currentHealth;
     this.#imgUrl = imgUrl;
-    this.#damage = damage;
+    // this.#damage = damage;
     // this.#attacks = [];
     this.#attacks = attacks;
   }
@@ -24,47 +24,37 @@ class Fighter {
   getMaxHealth() {
     return this.#maxHealth;
   }
+
   getImgUrl() {
     return this.#imgUrl;
   }
 
-  
   hitOrMiss() {
     const random = Math.random();
     return random < 0.5; 
   }
 
-  setAttacks(attackObj) {
-    this.#attacks.push(attackObj);
-  }
-
   getAttacks(){
-    // let attackIndex = 0;
-    // let attackNamTest = '';
-    for (const attack of this.#attacks ){
-      // attackIndex++;
-      // attackNamTest = `${attack[attackIndex].attackName}`;
-      // console.log(attackNamTest);
-      console.log(`${attack.attackName}, ${attack.attackDamage}`);
-       //return this.#attacks;
-    }  
+    // for (const attack of this.#attacks ){
+    //   console.log(`${attack.attackName}, ${attack.attackDamage}`);
+    // }  
     return this.#attacks; 
   }
-  getAttackName(){
-    console.log('this.#attacks');
-    console.log(this.#attacks);
-    let attackName = ''
-    for (const attack of this.#attacks ){
-      attackName = attack.attackName;
-      console.log('attackName via variabel');
-      console.log(attackName);
-      // return attackName;
-    }  
-    // return attackName;
-  }
+
+  // getCurrentHealth() {
+  //   return this.#currentHealth;
+  // }
+
+  // currentHealth(damage) {
+  //   this.currentHealth -= damage;
+  //   console.log('this.currentHealth');
+  //   console.log(this.currentHealth);
+  //   return this.#currentHealth;
+  // }
 
   applyDamage(damage) {
     this.currentHealth -= damage;
+
     if (this.currentHealth < 0) {
       this.currentHealth = 0;
       console.log('Game over! Restarting the game...');
@@ -78,7 +68,6 @@ class Fighter {
 
 
 export class Attack { 
-  
   constructor(attackName, attackDamage, attackImgUrl){
     // this.fighter = fighter;
     this.attackName = attackName;
@@ -134,3 +123,15 @@ export{Fighter} ;
 
 
 
+  // setAttacks(attackObj) {
+  //   this.#attacks.push(attackObj);
+  // }
+  
+  // getAttackName(){
+  //   for (const attack of this.#attacks ){
+  //     attackName = attack.attackName;
+  //     console.log('attackName via variabel');
+  //     console.log(attackName);
+  //   }  
+  //   // return attackName;
+  // }

@@ -2,37 +2,37 @@ import { Fighter, Attack } from "./fighter.js";
 
 class FighterZangief extends Fighter {
   constructor() {
-    super('Zangief', 850, 0, 'Zangief.webp',
+    super('Zangief', 650, 650, 'Zangief.webp',
     [
       new Attack('Air manipulation', 40, 'dust.png' ),
-      new Attack('Focus attack', 85, 'focus.png'),
-      new Attack('Dynamite punch', 85, 'punch.png'),
-      new Attack('Power kick', 85, 'battery.png'),
+      new Attack('Focus attack', 50, 'focus.png'),
+      new Attack('Dynamite punch', 70, 'punch.png'),
+      new Attack('Power kick', 60, 'battery.png'),
     ]);    
   }
 }
 
-const fighterZangief = new FighterZangief();
-console.log('fighterZangief i fightertype');
-console.log(fighterZangief);
+// const fighterZangief = new FighterZangief();
+// console.log('fighterZangief i fightertype');
+// console.log(fighterZangief);
 
 
 
 
 class FighterKunimitsu extends Fighter{ 
   constructor(){
-    super('Kunimitsu', 370, 0, 'Kunimitsu.png',
+    super('Kunimitsu', 470, 470,'Kunimitsu.png',
     [
-      new Attack('Blizzard combo', 40, 'hurricane.png' ),
+      new Attack('Blizzard combo', 50, 'hurricane.png' ),
       new Attack('Explosive jab', 85, 'explosion.png'),
-      new Attack('Shuriken throw', 85, 'shuriken.png'),
-      new Attack('Twisted limbs', 85, 'flash.png'),
+      new Attack('Shuriken throw', 70, 'shuriken.png'),
+      new Attack('Twisted limbs', 40, 'flash.png'),
     ]);      
   }
 }
-const fighterKunimitsu = new FighterKunimitsu();
-console.log('fighterKunimitsu i fightertype');
-console.log(fighterKunimitsu);
+// const fighterKunimitsu = new FighterKunimitsu();
+// console.log('fighterKunimitsu i fightertype');
+// console.log(fighterKunimitsu);
 
 
 
