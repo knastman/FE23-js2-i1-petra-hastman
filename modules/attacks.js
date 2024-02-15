@@ -68,11 +68,10 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
       if (fighterChoice2.hitOrMiss()) {
         fighterChoice2.calcCurrentHealth(damage); 
         fighter2CurrentHealth = fighterChoice2.getCurrentHealth();
-        displayCurrentHealthValue(fighterChoice1);
-        displayHealthBar(fighterChoice1, '1');
         displayFighterMessage(`${fighterChoice2.getName()}/${player2} takes ${damage} damage from ${attackName}!`);
-        console.log(`${fighterChoice2.getName()}/${player2} current health is ${fighter1CurrentHealth}`);
         console.log(`${fighterChoice2.getName()}/${player2} takes ${damage} damage!`);
+        console.log(`${fighterChoice2.getName()}/${player2} current health is ${fighter2CurrentHealth}`);// Denna visar rätt
+        displayHealthBar(`${fighter2CurrentHealth}`, '2');
 
       } else {
         displayFighterMessage(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
@@ -102,11 +101,12 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
         const damage = selectedAttack.attackDamage;
         if (fighterChoice1.hitOrMiss()) {
           fighterChoice1.calcCurrentHealth(damage);
-          displayCurrentHealthValue(fighterChoice2);
-          displayHealthBar(fighterChoice2, '2');
-          displayFighterMessage(`${fighterChoice1.getName()}/${player1} takes ${damage} damage from ${attackName}!`);
-          console.log(`${fighterChoice1.getName()}/${player1} current health is ${fighter1CurrentHealth}`);
           fighter1CurrentHealth = fighterChoice1.getCurrentHealth(); // Uppdatera nuvarande hälsa
+          // displayHealthBar(fighterChoice2, '2');
+          displayFighterMessage(`${fighterChoice1.getName()}/${player1} takes ${damage} damage from ${attackName}!`);
+          console.log(`${fighterChoice1.getName()}/${player1} takes ${damage} damage!`);
+          console.log(`${fighterChoice1.getName()}/${player1} current health is ${fighter1CurrentHealth}`); //Denna visar rätt
+          displayHealthBar(`${fighter1CurrentHealth}`, '1');
   
         } else {
           displayFighterMessage(`${player1} dodges the attack!`);
@@ -167,17 +167,29 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
 
 
 
+//FUNKAR SÅHÄR
+// function displayCurrentHealthValue(currentHealthfighter, fighter){
+// console.log('currentHealthfighter');
+// console.log(currentHealthfighter);
+// console.log('fighter');
+// console.log(fighter);
+// let currentHealthfighter1 = '';
+// let currentHealthfighter2 = '';
 
-function displayCurrentHealthValue(fighterChoice){
+//   if (fighter =='1'){
+//     currentHealthfighter1 = currentHealthfighter;
+//     console.log(`Nuvarande hälsa fighter 1 ${currentHealthfighter1}`);
+//   }
+//   else if(fighter =='2'){
+//     currentHealthfighter2 = currentHealthfighter;
+//     console.log(`Nuvarande hälsa fighter 2 ${currentHealthfighter2}`);
+//   }
 
-  const currentHealthValue = fighterChoice.getCurrentHealth(); 
-  const currentFighter = fighterChoice.getName();
+// }
 
-  console.log('currentHealthbar i nya i health via klass');
-  console.log(currentHealthValue);
-  console.log(currentFighter);
 
-}
+
+
 
 
 

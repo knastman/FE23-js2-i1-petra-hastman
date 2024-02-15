@@ -43,8 +43,6 @@ class Fighter {
     return random < 0.7; 
   }
   calcCurrentHealth(damage) {
-    console.log('Current health i klassen cal');
-    console.log(this.#currentHealth);
     this.#currentHealth -= damage;
     if (this.#currentHealth <= 0) {
       this.#currentHealth = 0;
@@ -52,6 +50,7 @@ class Fighter {
       // displayKO(this.#name);
       this.resetGame();
     }
+    console.log(  `${this.#currentHealth} for ${this.#name} in calc`);
     return this.#currentHealth;
   }
 
