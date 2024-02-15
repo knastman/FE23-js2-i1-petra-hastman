@@ -3,7 +3,7 @@ import { Fighter, Attack } from "./fighter.js";
 
 class FighterKunimitsu extends Fighter{ 
   constructor(){
-    super('Kunimitsu', 270, 270,'Kunimitsu.png',
+    super('Kunimitsu', 100, 100,'Kunimitsu.png',
     [
       new Attack('Blizzard combo', 50, 'hurricane.png' ),
       new Attack('Explosive jab', 85, 'explosion.png'),
@@ -20,12 +20,12 @@ class FighterKunimitsu extends Fighter{
 
 class FighterZangief extends Fighter {
   constructor() {
-    super('Zangief', 320, 320, 'Zangief.webp',
+    super('Zangief', 200, 200, 'Zangief.webp',
     [
-      new Attack('Air manipulation', 40, 'dust.png' ),
-      new Attack('Focus attack', 50, 'focus.png'),
-      new Attack('Dynamite punch', 70, 'punch.png'),
-      new Attack('Power kick', 60, 'battery.png'),
+      new Attack('Air manipulation', 30, 'dust.png' ),
+      new Attack('Focus attack', 40, 'focus.png'),
+      new Attack('Dynamite punch', 60, 'punch.png'),
+      new Attack('Power kick', 40, 'battery.png'),
     ]);    
   }
 }

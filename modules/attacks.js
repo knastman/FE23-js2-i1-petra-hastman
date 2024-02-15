@@ -71,7 +71,7 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
         displayFighterMessage(`${fighterChoice2.getName()}/${player2} takes ${damage} damage from ${attackName}!`);
         console.log(`${fighterChoice2.getName()}/${player2} takes ${damage} damage!`);
         console.log(`${fighterChoice2.getName()}/${player2} current health is ${fighter2CurrentHealth}`);// Denna visar rätt
-        displayHealthBar(`${fighter2CurrentHealth}`, '2');
+        displayHealthBar(`${fighter2CurrentHealth}`, '2', `${fighterChoice2.getName()}`);
 
       } else {
         displayFighterMessage(`${fighterChoice2.getName()}/${player2} dodges the attack!`);
@@ -106,7 +106,7 @@ export function createAttackBtns(fighterType1, fighterType2, player1, player2){
           displayFighterMessage(`${fighterChoice1.getName()}/${player1} takes ${damage} damage from ${attackName}!`);
           console.log(`${fighterChoice1.getName()}/${player1} takes ${damage} damage!`);
           console.log(`${fighterChoice1.getName()}/${player1} current health is ${fighter1CurrentHealth}`); //Denna visar rätt
-          displayHealthBar(`${fighter1CurrentHealth}`, '1');
+          displayHealthBar(`${fighter1CurrentHealth}`, '1', `${fighterChoice1.getName()}`);
   
         } else {
           displayFighterMessage(`${player1} dodges the attack!`);

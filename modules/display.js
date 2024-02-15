@@ -78,8 +78,7 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
 
   }
 
-
-  /************** All appends ******/
+  /************** Appends ******/
   playersContainer.append(playerCard);
   playerCard.append(playerHeaderContainer, fighterImgAndActionsContainer);
   playerHeaderContainer.append(healthElement);
@@ -147,10 +146,6 @@ function createFighterImg(fighterchoice){
 }
 
 
-
-
-
-
 function createHealthElement(fighterChoice){
 
   const MaxHealth = fighterChoice.getMaxHealth(); 
@@ -169,7 +164,6 @@ function createHealthElement(fighterChoice){
   healhthbarContainer.classList.add('healhthbarContainer');
   healhthbarFill.classList.add('healhthbarFill');
   healhthbarFill.setAttribute('style', 'width:100%');  //Här ska width= currenthealth, fast i procent på ngt sätt
-  // healhthbarFill.innerText = MaxHealth; 
   healhthbarFill.innerText = `${MaxHealth}`; 
 
   /******** */
@@ -198,125 +192,44 @@ function createHealthElement(fighterChoice){
 
 
 
-
-let healhthbarFill = '';
-export function displayHealthBar(currentHealthfighter, fighter){
+export function displayHealthBar(currentHealthfighter, fighter, fighterChoiceName){
 
   playerCard1 = document.querySelector('.player1');
   playerCard2 = document.querySelector('.player2');
 
   const healhthbarFill1 = document.querySelector('.player1 .healhthbarFill');
   const healhthbarFill2 = document.querySelector('.player2 .healhthbarFill');
-  console.log(healhthbarFill1);
-  console.log(healhthbarFill2);
   
-
-
-  console.log('currentHealthfighter');
-  console.log(currentHealthfighter);
-  console.log('fighter');
-  console.log(fighter);
   let currentHealthfighter1 = '';
   let currentHealthfighter2 = '';
   
   if (fighter =='1'){
+    console.log(fighterChoiceName);
+    console.log('fighterChoiceName');
     currentHealthfighter1 = currentHealthfighter;
-    console.log(`Nuvarande hälsa fighter 1 ${currentHealthfighter1}`);
-    // healhthbarFill.setAttribute('style', 'width:100%');
     healhthbarFill1.innerText = `${currentHealthfighter1}`; 
-  }
+    if (fighterChoiceName == 'Zangief'){
+      let currentHealthfighterPercent1 = currentHealthfighter1/2; 
+      healhthbarFill2.setAttribute('style', `width:${currentHealthfighterPercent1}%`);
+    }
+    else
+      healhthbarFill1.setAttribute('style', `width:${currentHealthfighter1}%`);
+    }
   else if(fighter =='2'){
+    console.log('fighterChoiceName');
+    console.log(fighterChoiceName);
     currentHealthfighter2 = currentHealthfighter;
-    console.log(`Nuvarande hälsa fighter 2 ${currentHealthfighter2}`);
     healhthbarFill2.innerText = `${currentHealthfighter2}`; 
-  }
-  
-
-  // const currentHealtPercent = currentHealthValue/2;
-  // const barWidth = `width:${currentHealtPercent}%`;
-
-  // if (healhthbarFill != null){
-  //   console.log('healhthbarFill');
-  //   console.log(healhthbarFill);
-  //   healhthbarFill.innerText = currentHealthValue;
-  //   // healhthbarFill.setAttribute('style', barWidth); 
-  // }
-
-  // if (playerCardNr == 1){
-  //   const currentHealthValue = fighterChoice.getCurrentHealth(); 
-  //   healhthbarFill1.innerText = currentHealthValue;
-
-  // }
-
-  // else if (playerCardNr == 2){
-  //   const currentHealthValue = fighterChoice.getCurrentHealth(); 
-  //   healhthbarFill2.innerText = currentHealthValue;
-  // }
+    if (fighterChoiceName == 'Zangief'){
+      let currentHealthfighterPercent2 = currentHealthfighter2/2; 
+      healhthbarFill2.setAttribute('style', `width:${currentHealthfighterPercent2}%`); 
+    }
+    else {
+      healhthbarFill2.setAttribute('style', `width:${currentHealthfighter2}%`);
+    }
+  }  
 
 }
-
-
-// export function displayKO(playerCardNr){
-//   const imgElement = document.querySelector('.playerImg');
-//   const playerCard1 = document.querySelector('.player1');
-//   const playerCard2 = document.querySelector('.player2');
-
-//   const KOElement = document.createElement('div');
-//   KOElement.innerText="KO";
-//   KOElement.classList.add('ko');
-//   const WINelement = document.createElement('div');
-//   WINelement.innerText="WINNER";
-//   WINelement.classList.add('fighterWon');
-
-//   if (playerCardNr == 1){
-//     playerCard1.classList.add('fighterLost');
-//     playerCard1.classList.add('fighterLost-wrapper');
-//     playerCard1.setAttribute('id', 'fightOver'); 
-//     playerCard1.append(KOElement);
-//     playerCard2.append(WINelement);
-//   }
-//   else if (playerCardNr == 2){
-//     playerCard2.classList.add('fighterLost');
-//     playerCard2.classList.add('fighterLost-wrapper');
-//     playerCard2.setAttribute('id', 'fightOver'); 
-//     playerCard2.append(KOElement);
-//     playerCard1.append(WINelement);
-//   }
-
-//   newGButton.classList.remove("hide"); 
-//   messageContainer.classList.add("hide"); 
-//   return KOElement;
-// }
-// let healhthbarFill = '';
-// export function displayHealthBar(fighterChoice, playerCardNr){
-//   const playerCard1 = document.querySelector('.player1');
-//   const playerCard2 = document.querySelector('.player2');
-  
-//   const healhthbarFill1 = document.querySelector('.player1 .healhthbarFill');
-//   const healhthbarFill2 = document.querySelector('.player2 .healhthbarFill');
-  
-//   // const currentHealtPercent = currentHealthValue/2;
-//   // const barWidth = `width:${currentHealtPercent}%`;
-
-//   // if (healhthbarFill != null){
-//   //   console.log('healhthbarFill');
-//   //   console.log(healhthbarFill);
-//   //   healhthbarFill.innerText = currentHealthValue;
-//   //   // healhthbarFill.setAttribute('style', barWidth); 
-//   // }
-
-//   if (playerCardNr == 1){
-//     const currentHealthValue = fighterChoice.getCurrentHealth(); 
-//     healhthbarFill1.innerText = currentHealthValue;
-
-//   }
-
-//   else if (playerCardNr == 2){
-//     const currentHealthValue = fighterChoice.getCurrentHealth(); 
-//     healhthbarFill2.innerText = currentHealthValue;
-//   }
-
-// }
 
 
 export function displayKO(playerCardNr){
