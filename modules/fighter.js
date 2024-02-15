@@ -1,8 +1,9 @@
 import {displayFigher, displayKO} from "./display.js"
+
 class Fighter {
   #name;
   #maxHealth;
-  #currentHealth 
+  #currentHealth;
   #imgUrl;
   // #damage;
   #attacks;
@@ -29,47 +30,43 @@ class Fighter {
   getImgUrl() {
     return this.#imgUrl;
   }
-
-  hitOrMiss() {
-    const random = Math.random();
-    return random < 0.5; 
-  }
-
   getAttacks(){
-    // for (const attack of this.#attacks ){
-    //   console.log(`${attack.attackName}, ${attack.attackDamage}`);
-    // }  
     return this.#attacks; 
   }
 
-  // getCurrentHealth() {
-  //   return this.#currentHealth;
-  // }
-  resetGame() {
-    // Återställ spelvärden till ursprungligt tillstånd
-    this.#currentHealth = this.#maxHealth;
-    // Lägg till andra återställningar beroende på ditt spel
+  getCurrentHealth() {
+    return this.#currentHealth; 
+  }
 
-    console.log('Game reset!');
-  } 
-
-  
-  
-  currentHealth(damage) {
+  hitOrMiss() {
+    const random = Math.random();
+    return random < 0.7; 
+  }
+  calcCurrentHealth(damage) {
+    console.log('Current health i klassen cal');
+    console.log(this.#currentHealth);
     this.#currentHealth -= damage;
-    console.log('Current health i klassen');
     if (this.#currentHealth <= 0) {
       this.#currentHealth = 0;
       console.log(`${this.#name} is defeated! Game over!`);
-      displayKO();
+      // displayKO(this.#name);
       this.resetGame();
-      
     }
     return this.#currentHealth;
   }
-  getCurrentHealth() {
-    return this.#currentHealth;
-  }
+
+  resetGame() {
+    // Återställ spelvärden till ursprungligt tillstånd
+    this.currentHealth = this.#maxHealth;
+    // Lägg till andra återställningar beroende på ditt spel
+    console.log('Game reset!'); // Detta skrivs ut två ggr
+  } 
+
+  // #setRecord(){
+  //   this.#record = `${this.#wins}-${this.#losses}`;
+  // }
+
+
   /* applyDamage(damage) {
     this.currentHealth -= damage;
 

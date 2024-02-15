@@ -1,14 +1,23 @@
 // import { FighterType} from "./fighterType.js";
 import { FighterKunimitsu, FighterZangief} from "./fighterType.js";
-import { createHealthElement} from "./attacks.js";
+// import { createHealthElement} from "./attacks.js";
 // import {Attack} from "./fighter.js";
 // console.log(Attack);
 
 const playersContainer = document.querySelector('#playersContainer');
+const messageContainer = document.querySelector('#messageContainer');
 const imgBaseUrl = './img/';
 
 const newGameBtnDiv = document.querySelector('.newGameBtnDiv');
 const newGameButton = document.querySelector('#newGameButton');
+const newGButton = document.querySelector('.newGame');
+
+const playerCard1 = '';
+const playerCard2 = '';
+const healtbarfill1 = '';
+const healtbarfill2 = '';
+
+
 
 
 /*************************************
@@ -35,14 +44,26 @@ export function createFighter(name) {
 
 let fighterChoice = '';
 let playerName = '';
-
 let playerCard = ''; 
+
+
+// displayFighterMessage('The game can start!  Choose attack');
+
+export function displayFighterMessage(message) {
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('fightingMessage');
+  messageElement.innerText = message;
+  messageContainer.append(messageElement);
+}
+
 
 export async function displayFigher(fighterType, playerName, fighterContainerIndex){
   fighterChoice = createFighter(fighterType); 
 
-  const playerCard = document.createElement('section'); 
+  playerCard = document.createElement('section'); 
   playerCard.classList.add('playerCard');
+
+  messageContainer.innerHTML = `<h2>The game can start!  Choose attack</h2>`;
 
   const playerHeaderContainer= createFighterHeader(fighterChoice, playerName); 
   const healthElement = createHealthElement(fighterChoice); 
@@ -53,26 +74,19 @@ export async function displayFigher(fighterType, playerName, fighterContainerInd
   fighterImgAndActionsContainer.classList.add('playerInfo');
   if (fighterContainerIndex == 2) {
     fighterImgAndActionsContainer.classList.add('actioncontainerRight');
+    playerCard.classList.add('player2');
   }
- 
-  //KO ELEMENT******************
-  // const KOElement = displayKO(fighterChoice);
+  else if((fighterContainerIndex == 1)){
+    playerCard.classList.add('player1');
 
-  // const KOElement = document.createElement('div');
-  // playerCard.append(KOElement);
-  // KOElement.innerText="KO";
-  // KOElement.classList.add('ko');
+  }
+
 
   /************** All appends ******/
   playersContainer.append(playerCard);
   playerCard.append(playerHeaderContainer, fighterImgAndActionsContainer);
   playerHeaderContainer.append(healthElement);
   fighterImgAndActionsContainer.append(actionContainer, imgElement); 
-  if (fighterCurrentHealth == 0){
-    const KOElement = displayKO(fighterChoice, playerCard);
-    imgElement.append(KOElement); //Den ska appendas när ngn förlorat och klasserna måste aktiveras  
-  }
-
 
 }
 
@@ -116,9 +130,7 @@ for(const attack of fighterChoice.getAttacks()){
   /******* ButtonImage ******/
   const fighterImgUrl = attack.attackImgUrl;
   attackImgElement.src = `${imgBaseUrl}/icons/${fighterImgUrl}`;
-  // imgContainer.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
-  // console.log('clara loggar', attack.getAttackName());
-  // console.log(`${attack.attackName}, ${attack.attackDamage}`);
+
 
   
   actionContainer.append(imgContainer); 
@@ -137,197 +149,137 @@ function createFighterImg(fighterchoice){
   return imgContainer ;
 }
 
-export function displayKO(fighterChoiceName, playerCard){
+
+//  export function createHealthElement(player1, player2){
+function createHealthElement(fighterChoice){
+
+  const MaxHealth = fighterChoice.getMaxHealth(); 
+
+  const divHealth = document.createElement('div');
+  divHealth.classList.add('health');
+
+  const healthbarDiv = document.createElement('div');
+  healthbarDiv.id = 'currentHealth';
+  healthbarDiv.classList.add('healthbar');
+  const maxHealth = fighterChoice.getMaxHealth(); 
+  healthbarDiv.innerText = maxHealth;
+
+  const healhthbarContainer = document.createElement('div');
+  const healhthbarFill = document.createElement('div');
+  healhthbarContainer.classList.add('healhthbarContainer');
+  healhthbarFill.classList.add('healhthbarFill');
+  healhthbarFill.setAttribute('style', 'width:100%');  //Här ska width= currenthealth, fast i procent på ngt sätt
+  // healhthbarFill.innerText = MaxHealth; 
+  healhthbarFill.innerText = `Health: ${MaxHealth}`; 
+
+  /******** */
+  const healthInfoDiv = document.createElement('div');
+  healthInfoDiv.classList.add('healthInfo');
+
+  const healthspan1 = document.createElement('span');
+  const healthspan2 = document.createElement('span');
+  healthspan2.id = 'maxHealth';
+
+  healthspan1.innerText = 'Health';
+
+  divHealth.append(healhthbarContainer, healthInfoDiv);
+  healhthbarContainer.append(healhthbarFill);
+
+  // divHealth.append(healthBorderDiv, healthInfoDiv);
+  // healthBorderDiv.append(healthbarDiv);
+  healthInfoDiv.append(healthspan1, healthspan2);
+
+  // const maxHealthElement = healthElement.querySelector("#maxHealth");
+  const fighterMaxHealth = fighterChoice.getMaxHealth();//FRÅN CLASSEN 
+  healthspan2.innerText =  `MAX ${fighterMaxHealth}`; //FRÅN CLASSEN 
+
+  return divHealth;
+  }
+
+
+let healhthbarFill = '';
+export function displayHealthBar(fighterChoice, playerCardNr){
+  console.log('playerCardNr');
+  console.log(playerCardNr);
+
+  const playerCard1 = document.querySelector('.player1');
+  const playerCard2 = document.querySelector('.player2');
+  
+  const healhthbarFill1 = document.querySelector('.player1 .healhthbarFill');
+  const healhthbarFill2 = document.querySelector('.player2 .healhthbarFill');
+  
+
+
+
+  // const currentHealtPercent = currentHealthValue/2;
+  // const barWidth = `width:${currentHealtPercent}%`;
+
+  // if (healhthbarFill != null){
+  //   console.log('healhthbarFill');
+  //   console.log(healhthbarFill);
+  //   healhthbarFill.innerText = currentHealthValue;
+  //   // healhthbarFill.setAttribute('style', barWidth); 
+  // }
+
+  if (playerCardNr == 1){
+    console.log('healhthbarFill1');
+    console.log(healhthbarFill1);
+    const currentHealthValue = fighterChoice.getCurrentHealth(); 
+    healhthbarFill1.innerText = currentHealthValue;
+
+  }
+
+  else if (playerCardNr == 2){
+    console.log('healhthbarFill1');
+    console.log(healhthbarFill1);
+    const currentHealthValue = fighterChoice.getCurrentHealth(); 
+    healhthbarFill2.innerText = currentHealthValue;
+  }
+
+
+
+}
+
+
+export function displayKO(playerCardNr){
+  console.log('playerCardNr');
+  console.log(playerCardNr);
+
+  const imgElement = document.querySelector('.playerImg');
+  const playerCard1 = document.querySelector('.player1');
+  const playerCard2 = document.querySelector('.player2');
+
+
   const KOElement = document.createElement('div');
   KOElement.innerText="KO";
   KOElement.classList.add('ko');
-  playerCard.classList.add('fighterLost');
-  playerCard.classList.add('fighterLost-wrapper');
-  playerCard.setAttribute('id', 'fightOver'); //olika id på sections
-  // KOElement.classList.add('fighterLost');
-  // KOElement.classList.add('container__icon-wrapper');
-  // KOElement.classList.add('hide');
+  const WINelement = document.createElement('div');
+  WINelement.innerText="WINNER";
+  WINelement.classList.add('fighterWon');
 
+  if (playerCardNr == 1){
+    playerCard1.classList.add('fighterLost');
+    playerCard1.classList.add('fighterLost-wrapper');
+    playerCard1.setAttribute('id', 'fightOver'); 
+    playerCard1.append(KOElement);
+    playerCard2.append(WINelement);
+  }
+  else if (playerCardNr == 2){
+    playerCard2.classList.add('fighterLost');
+    playerCard2.classList.add('fighterLost-wrapper');
+    playerCard2.setAttribute('id', 'fightOver'); 
+    playerCard2.append(KOElement);
+    playerCard1.append(WINelement);
+  }
+
+  newGButton.classList.remove("hide"); 
+  messageContainer.classList.add("hide"); 
   return KOElement;
 }
 
 
-//FUnkar EJ (ville göra det synligare vems tur det är)
+// // FUnkar EJ (ville göra det synligare vems tur det är)
 // export function opacityForDisabled(element, fighterchoice){
 //   element.classList.add('opacity');
 // }
 
-
-/****************** Display Healthbar and maxhealth *******************/ 
-
-//JUST NU I ATTACKS.js för test
-
-//  function createHealthElement(){
-//   const divHealth = document.createElement('div');
-//   divHealth.classList.add('health');
-
-//   const healthBorderDiv = document.createElement('div');
-//   healthBorderDiv.classList.add('healthBorder');
-
-//   const healthbarDiv = document.createElement('div');
-//   healthbarDiv.id = 'currentHealth';
-//   healthbarDiv.classList.add('healthbar');
-//   // healthbarDiv.innerText = this.currentHealth;
-//   healthbarDiv.innerText = '370'; //Detta ska hämtas från metoden när den finns
-
-//   const healthInfoDiv = document.createElement('div');
-//   healthInfoDiv.classList.add('healthInfo');
-
-//   const healthspan1 = document.createElement('span');
-//   const healthspan2 = document.createElement('span');
-//   healthspan2.id = 'maxHealth';
-
-//   healthspan1.innerText = 'Health';
-
-//   divHealth.append(healthBorderDiv, healthInfoDiv);
-//   healthBorderDiv.append(healthbarDiv);
-//   healthInfoDiv.append(healthspan1, healthspan2);
-
-//   return divHealth;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // const playerHeaderContainer = document.querySelector('#playerHeader');
-  // const namesPlayerAndFighter = document.querySelector('.playerNames');
-  // const actionContainer = document.querySelector('.actionContainer');
-  // const fighterImgAndActionsContainer = document.querySelector('.playerInfo');
-
-// export {displayPlayerInfo}
-
-
-
-/********************* GAMMALT OCH TESTER OSV *************/
- 
-  // playerCard.setAttribute('id', fighterContainerIndex); //olika id på sections
-
-
-// function createAndAppendElement(type, content, container){
-//     const element = document.createElement(type);
-//     container.append(element);
-//     if(type === 'img'){
-//       element.src = content;
-//     } 
-//     else {
-//       element.innerText = content;
-//     }
-//     return element;
-// }
-
-// function displayPlayerInfo(playerInfo, container){
-//     createAndAppendElement('h3', playerInfo, container);
-// }
-
-// export function displayFigher(fighterType, playerName){
-
-//   const playerHeader = document.createElement('h3');
-//   playerOneContainer.append(playerHeader);
-//   playerHeader.innerText = `${playerName} as ${fighterType} `;
-
-//   // for(const prop in fighterType){
-//   //   console.log(prop, fighterType[prop]);  
-//   // }
-//   // for(const prop in Kunimitsu){
-//   //   console.log(prop, Kunimitsu[prop]);  
-//   // }
-
-// }
-
-
-
-
-
-  // playerHeader2.innerText = `${playerName2} as ${fighterType2} `;
-  
-  //HUr hämtar jag in objectet och dess info här
-  // console.log(`${fighter1.getName()} have ${fighter1.getMaxHealth()} in maxhealth`);
-
-
-
-
-
-  /******* ActionContainer ******/
-  //------------------Hur hämtar man ut varje action för sig?--------------
- 
-  // const actionContainer = createActionElements();//från FUNCTION
-  // const attacks = fighterChoice.getAttacks(); //Listar attacknamn och attackdamage 
-
-  // const attackName = fighterChoice.getAttackName(); //Funkar ej
-  // console.log('attackName');
-  // console.log(attackName);
-
-
-  // actionContainer.classList.add('actionContainer');
-  // const fighterAttacks = fighterChoice.getAttacks();
-  // console.log(fighterAttacks);
-  // actionContainer.innerText = fighterAttacks; //Detta blir bara [object], [object]
-
-//  Tillfälligt
-  // actionContainer.innerHTML = ` 
-  // <h3>Actions</h3>
-  // <div>
-  //   <button class="kunimitsuButton" data-attack-name="blizzard combo" data-attack-damage="40" id="blizzard">
-  //     <img src="./img/icons/hurricane.png" alt="">Blizzard Combo
-  //   </button>
-  // </div>
-  // <div>
-  //   <button class="kunimitsuButton" data-attack-name="explosive jab" data-attack-damage="25" id="explosiveJab">
-  //     <img src="./img/icons/explosion.png" alt="">Explosive jab
-  //   </button>
-  // </div>            
-  // <div>
-  //   <button class="kunimitsuButton" data-attack-name="shuriken throw" data-attack-damage="85" id="shurikenThrow">
-  //     <img src="./img/icons/shuriken2.png" alt="">Shuriken Throw
-  //   </button>
-  // </div>
-  // <div>
-  //   <button class="kunimitsuButton" data-attack-name="twisted limbs" data-attack-damage="205" id="twistedLimbs">
-  //     <img src="./img/icons/flash.png" alt="">Twisted Limbs
-  //   </button>
-  // </div>`;
-
-  // const maxHealthElement = healthElement.querySelector("#maxHealth");
-  // const fighterMaxHealth = fighterChoice.getMaxHealth();//FRÅN CLASSEN 
-  // maxHealthElement.innerText =  `MAX ${fighterMaxHealth}`; //FRÅN CLASSEN 
-  // maxHealthElement.innerText = fighterChoice.getMaxHealth();
-
-
-    // for(const attack of fighterChoice.getAttacks()){
-  //   // const actionElement =  document.createElement('h5');
-  //   const actionButton =  document.createElement('button');
-  //   const imgContainer = document.createElement('div');
-  //   const attackName = document.createElement('span');
-  //   const attackImgElement =  document.createElement('img');
-  //   actionButton.classList.add(`${fighterChoiceName}button`);
-  //   actionButton.setAttribute("data-attack-name", `${attack.attackName}`); 
-  //   actionButton.setAttribute("id", `${attack.attackName}`); 
-  //   actionButton.setAttribute("data-attack-damage", `${attack.attackDamage}`); 
-  //   attackName.innerText = attack.attackName;
-
-  //   /******* ButtonImage ******/
-  //   const fighterImgUrl = attack.attackImgUrl;
-  //   attackImgElement.src = `${imgBaseUrl}/icons/${fighterImgUrl}`;
-  //   // imgContainer.innerHTML = `<img src=${imgBaseUrl}${attackImg}  alt= ${fighterChoiceName} />`;
-  //   // console.log('clara loggar', attack.getAttackName());
-  //   // console.log(`${attack.attackName}, ${attack.attackDamage}`);
-
-  //   actionContainer.append(imgContainer); 
-  //   imgContainer.append(actionButton); 
-  //   actionButton.append(attackImgElement,attackName); 
-
-  // }

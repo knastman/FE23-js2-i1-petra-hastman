@@ -22,8 +22,31 @@
 
 /**** GENERAL ****/
 .opacity{
-  opacity: 0.4;
+  opacity: 0.7;
 }
+
+.removeHide {
+  display: block !important;
+}
+
+
+/******* FIGHTING INFORMATION ******/
+#messageContainer{
+  font-size: 1.1rem;
+  color:#ff0019;
+  width:100%;
+  margin:20px auto;
+  height:70px;
+  /* background-color: #1db954; */
+  padding:20px;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+}
+
 
 /*******FIGHT *********/
 #playersContainer, #startContainer{
@@ -59,23 +82,29 @@
 
 .health{
   padding:5px;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 600;
   font-size: 1.15rem;
 }
 
-.healthbar{
-  background-color: rgb(161, 5, 5);
-  color:#fff;
-  padding:5px;
-  height:30px;
+
+
+.healhthbarContainer{
+  color: #000!important;
+  background-color: #f1f1f1!important;
 }
 
-.healthbar{
-  background-color: rgb(161, 5, 5);
-  color:#fff;
+.healhthbarFill {
   padding:5px;
+  color: #fff!important;
+  background-color: rgb(161, 5, 5);
   height:30px;
+  /* text-align: right; */
+  text-align: center;
+}
+
+.healthbarFull{
+  width:60%;
 }
 
 .healthInfo{
@@ -84,26 +113,9 @@
   padding:3px 5px 0 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  /* background-color: rgb(253, 250, 250);
-  border-bottom:1px solid #ccc;
-  margin-top:5px; */
 }
 
-.healthbarFull{
-  width:100%;
-}
 
-.healthbarCurrent{
-  width:30%; /* Bara för att kunna se hur det ser ut */
-}
-
-.healthBorder{
-  border:1px solid #ccc;
-  background-color: rgba(161, 5, 5, 0.093);
-  text-align:right;
-  height:32px;
-  
-}
 
 .playerInfo {
   /* background-color: chartreuse; */
@@ -121,9 +133,6 @@
   width:75%;
 }
 .playerImg img{
-  /* height:450px; */
-  /* width:450px; */
-
   filter: drop-shadow(0 0 0.5rem rgb(174, 174, 174));
   margin:10px;
 }
@@ -247,6 +256,10 @@
 
 
 
+
+
+
+
 /****** FIGHT OVER*****/
 
 #fightOver{
@@ -292,17 +305,29 @@
   opacity: 0.30;
 }
 
+
+
 .textAlign{
   text-align: center;
 }
 .ko {
   position: absolute;
-  top: 30%;
+  top: 25%;
   transform: translate(50%, 50%); 
-  font-size: 10rem;
+  font-size: 12rem;
   text-align: center;
   font-weight: 600;
 }
+
+.fighterWon{
+  position: absolute;
+  top: 25%;
+  transform: translate(50%, 50%); 
+  font-size: 7rem;
+  text-align: center;
+  font-weight: 600;
+}
+
 
 .victoryText{
   font-size: 1.7rem;
@@ -324,7 +349,17 @@
 
 .newGameBtnDiv{
   display:flex; 
+  flex-direction: column;
   justify-content:center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-right: 14px;
+}
+.newGame{
+  display:flex; 
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
   margin-bottom: 1rem;
   margin-right: 14px;
 }

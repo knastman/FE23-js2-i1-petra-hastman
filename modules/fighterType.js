@@ -1,5 +1,23 @@
 import { Fighter, Attack } from "./fighter.js";
 
+
+class FighterKunimitsu extends Fighter{ 
+  constructor(){
+    super('Kunimitsu', 100, 90,'Kunimitsu.png',
+    [
+      new Attack('Blizzard combo', 50, 'hurricane.png' ),
+      new Attack('Explosive jab', 85, 'explosion.png'),
+      new Attack('Shuriken throw', 70, 'shuriken.png'),
+      new Attack('Twisted limbs', 40, 'flash.png'),
+    ]);      
+  }
+}
+// const fighterKunimitsu = new FighterKunimitsu();
+// console.log('fighterKunimitsu i fightertype');
+// console.log(fighterKunimitsu);
+
+
+
 class FighterZangief extends Fighter {
   constructor() {
     super('Zangief', 150, 100, 'Zangief.webp',
@@ -17,20 +35,6 @@ class FighterZangief extends Fighter {
 // console.log(fighterZangief);
 
 
-class FighterKunimitsu extends Fighter{ 
-  constructor(){
-    super('Kunimitsu', 100, 100,'Kunimitsu.png',
-    [
-      new Attack('Blizzard combo', 50, 'hurricane.png' ),
-      new Attack('Explosive jab', 85, 'explosion.png'),
-      new Attack('Shuriken throw', 70, 'shuriken.png'),
-      new Attack('Twisted limbs', 40, 'flash.png'),
-    ]);      
-  }
-}
-// const fighterKunimitsu = new FighterKunimitsu();
-// console.log('fighterKunimitsu i fightertype');
-// console.log(fighterKunimitsu);
 
 
 
