@@ -170,7 +170,7 @@ function createHealthElement(fighterChoice){
   healhthbarFill.classList.add('healhthbarFill');
   healhthbarFill.setAttribute('style', 'width:100%');  //Här ska width= currenthealth, fast i procent på ngt sätt
   // healhthbarFill.innerText = MaxHealth; 
-  healhthbarFill.innerText = `Health: ${MaxHealth}`; 
+  healhthbarFill.innerText = `${MaxHealth}`; 
 
   /******** */
   const healthInfoDiv = document.createElement('div');
@@ -199,18 +199,12 @@ function createHealthElement(fighterChoice){
 
 let healhthbarFill = '';
 export function displayHealthBar(fighterChoice, playerCardNr){
-  console.log('playerCardNr');
-  console.log(playerCardNr);
-
   const playerCard1 = document.querySelector('.player1');
   const playerCard2 = document.querySelector('.player2');
   
   const healhthbarFill1 = document.querySelector('.player1 .healhthbarFill');
   const healhthbarFill2 = document.querySelector('.player2 .healhthbarFill');
   
-
-
-
   // const currentHealtPercent = currentHealthValue/2;
   // const barWidth = `width:${currentHealtPercent}%`;
 
@@ -222,16 +216,12 @@ export function displayHealthBar(fighterChoice, playerCardNr){
   // }
 
   if (playerCardNr == 1){
-    console.log('healhthbarFill1');
-    console.log(healhthbarFill1);
     const currentHealthValue = fighterChoice.getCurrentHealth(); 
     healhthbarFill1.innerText = currentHealthValue;
 
   }
 
   else if (playerCardNr == 2){
-    console.log('healhthbarFill1');
-    console.log(healhthbarFill1);
     const currentHealthValue = fighterChoice.getCurrentHealth(); 
     healhthbarFill2.innerText = currentHealthValue;
   }
@@ -242,13 +232,9 @@ export function displayHealthBar(fighterChoice, playerCardNr){
 
 
 export function displayKO(playerCardNr){
-  console.log('playerCardNr');
-  console.log(playerCardNr);
-
   const imgElement = document.querySelector('.playerImg');
   const playerCard1 = document.querySelector('.player1');
   const playerCard2 = document.querySelector('.player2');
-
 
   const KOElement = document.createElement('div');
   KOElement.innerText="KO";
