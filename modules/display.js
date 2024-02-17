@@ -265,6 +265,17 @@ export function displayKO(playerCardNr){
 }
 
 
+
+const observer = new MutationObserver(scrollToBottom);
+const config = {childList: true};
+observer.observe(messageContainer, config);
+
+function scrollToBottom() {
+  const scrollHeight = '70px';
+  messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+
 // // FUnkar EJ (ville göra det synligare vems tur det är)
 // export function opacityForDisabled(element, fighterchoice){
 //   element.classList.add('opacity');
